@@ -12,7 +12,15 @@ import SafariServices
 class FeedTableViewController: UITableViewController {
 
     var feed: [FeedEntry] = []
+    var currentFeedTitle: String = "Marco.org"
+    var currentFeedURL: String = "https://marco.org/rss2"
     
+    func getFeed() {
+        let feedParser = FeedParser()
+        self.feed = feedParser.refreshFeed(currentFeedURL)
+        
+        print(self.feed.count)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +31,7 @@ class FeedTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        let feedParser = FeedParser()
-        self.feed = feedParser.refreshFeed("")
-        
-        print(self.feed.count)
+        self.getFeed()
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,6 +86,56 @@ class FeedTableViewController: UITableViewController {
     }
     
 
+    @IBAction func addNewFeed(sender: AnyObject) {
+        
+//        let newFeedActionSheetController: UIAlertController = UIAlertController(title: "Add new Feed", message: "", preferredStyle: .Alert)
+//        
+//        //Create actions
+//        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+//            action -> Void in
+//        })
+//        let addAction: UIAlertAction = UIAlertAction(title: "Add", style: .Default, handler: {
+//            action -> Void in
+//        })
+//        
+//        //Add actions
+//        newFeedActionSheetController.addAction(cancelAction)
+//        newFeedActionSheetController.addAction(addAction)
+//        
+//        //Add Textfields
+//        newFeedActionSheetController.addTextFieldWithConfigurationHandler(<#T##((UITextField) -> Void)?##((UITextField) -> Void)?##(UITextField) -> Void#>)
+
+        
+        let alertController = UIAlertController(title: "PlainTextStyle", message: "PlainTextStyle AlertView.", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addTextFieldWithConfigurationHandler { (textField : UITextField) -> Void in
+            textField.placeholder = "Login"
+        }
+        alertController.addTextFieldWithConfigurationHandler({
+            (textField: UITextField) -> Void in
+            textField.placeholder = "Feed URL"
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (result : UIAlertAction) -> Void in
+            print("Cancel")
+        }
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
+            
+            self.currentFeedTitle = (alertController.textFields![0] as UITextField).text!
+            self.currentFeedURL = (alertController.textFields![1] as UITextField).text!
+            
+            print(self.currentFeedTitle + " + " + self.currentFeedURL)
+            
+            self.getFeed()
+            self.tableView.reloadData()
+            
+            
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
+        
+        
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

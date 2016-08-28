@@ -26,7 +26,7 @@ class FeedParser: NSObject, NSXMLParserDelegate {
     
     func refreshFeed(feedAddress: String) -> [FeedEntry] {
 //        let urlString = NSURL(string: feedAddress)
-        let path = NSURL(string: "https://marco.org/rss2")
+        let path = NSURL(string: feedAddress)
 //        if let path = NSBundle.mainBundle().URLForResource("Books", withExtension: "xml"){
             if let parser = NSXMLParser(contentsOfURL: path!) {
                 parser.delegate = self

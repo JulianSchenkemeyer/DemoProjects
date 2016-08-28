@@ -46,7 +46,13 @@
                             <outlet property="delegate" destination="DH2-lO-IWb" id="wyw-4v-8F4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="V90-3M-wUJ"/>
+                    <navigationItem key="navigationItem" id="V90-3M-wUJ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="p4O-YH-yfU">
+                            <connections>
+                                <action selector="addNewFeed:" destination="DH2-lO-IWb" id="g3o-uW-Noq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fRU-YP-L46" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
