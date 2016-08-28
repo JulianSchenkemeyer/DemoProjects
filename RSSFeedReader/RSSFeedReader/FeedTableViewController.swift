@@ -22,6 +22,7 @@ class FeedTableViewController: UITableViewController {
         print(self.feed.count)
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,6 +33,11 @@ class FeedTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         self.getFeed()
+        
+        let titleLabel: UILabel = UILabel()
+        titleLabel.text = currentFeedTitle
+        
+        self.title = currentFeedTitle
     }
 
     override func didReceiveMemoryWarning() {
@@ -88,23 +94,6 @@ class FeedTableViewController: UITableViewController {
 
     @IBAction func addNewFeed(sender: AnyObject) {
         
-//        let newFeedActionSheetController: UIAlertController = UIAlertController(title: "Add new Feed", message: "", preferredStyle: .Alert)
-//        
-//        //Create actions
-//        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
-//            action -> Void in
-//        })
-//        let addAction: UIAlertAction = UIAlertAction(title: "Add", style: .Default, handler: {
-//            action -> Void in
-//        })
-//        
-//        //Add actions
-//        newFeedActionSheetController.addAction(cancelAction)
-//        newFeedActionSheetController.addAction(addAction)
-//        
-//        //Add Textfields
-//        newFeedActionSheetController.addTextFieldWithConfigurationHandler(<#T##((UITextField) -> Void)?##((UITextField) -> Void)?##(UITextField) -> Void#>)
-
         
         let alertController = UIAlertController(title: "PlainTextStyle", message: "PlainTextStyle AlertView.", preferredStyle: UIAlertControllerStyle.Alert)
         alertController.addTextFieldWithConfigurationHandler { (textField : UITextField) -> Void in
@@ -125,6 +114,7 @@ class FeedTableViewController: UITableViewController {
             print(self.currentFeedTitle + " + " + self.currentFeedURL)
             
             self.getFeed()
+            self.title = self.currentFeedTitle
             self.tableView.reloadData()
             
             
