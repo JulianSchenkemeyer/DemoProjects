@@ -9,7 +9,7 @@
 import Foundation
 
 
-class FeedParser: NSObject, NSXMLParserDelegate {
+class FeedParser: NSObject, XMLParserDelegate {
     
     var feedEntries: [FeedEntry] = []
     var eName: String = String()
@@ -18,17 +18,17 @@ class FeedParser: NSObject, NSXMLParserDelegate {
     
     
     
-    var parser: NSXMLParser!
+    var parser: XMLParser!
 //    var posts = NSMutableArray()
 //    var elements = NSMutableDictionary()
 //    var element = NSString()
 //    var elementTitle =
     
-    func refreshFeed(feedAddress: String) -> [FeedEntry] {
+    func refreshFeed(_ feedAddress: String) -> [FeedEntry] {
 //        let urlString = NSURL(string: feedAddress)
-        let path = NSURL(string: feedAddress)
+        let path = URL(string: feedAddress)
 //        if let path = NSBundle.mainBundle().URLForResource("Books", withExtension: "xml"){
-            if let parser = NSXMLParser(contentsOfURL: path!) {
+            if let parser = XMLParser(contentsOf: path!) {
                 parser.delegate = self
                 parser.parse()
             }
@@ -38,7 +38,7 @@ class FeedParser: NSObject, NSXMLParserDelegate {
         return feedEntries
     }
     
-    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         eName = elementName
         
 //        print(elementName)
@@ -49,7 +49,7 @@ class FeedParser: NSObject, NSXMLParserDelegate {
         }
     }
     
-    func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         
         if elementName == "item" {
             let entry = FeedEntry()
@@ -62,8 +62,8 @@ class FeedParser: NSObject, NSXMLParserDelegate {
         }
     }
     
-    func parser(parser: NSXMLParser, foundCharacters string: String) {
-        let data = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+    func parser(_ parser: XMLParser, foundCharacters string: String) {
+        let data = string.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         
         if (!data.isEmpty) {
             if eName == "title" {

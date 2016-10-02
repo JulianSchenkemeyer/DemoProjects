@@ -47,12 +47,12 @@ class FeedTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return self.feed.count
     }
@@ -60,12 +60,12 @@ class FeedTableViewController: UITableViewController {
     
     
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! FeedEntryTableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! FeedEntryTableViewCell
 
         // Configure the cell...
 //        print(indexPath.row)
-        let feedEntry = feed[indexPath.row]
+        let feedEntry = feed[(indexPath as NSIndexPath).row]
         
         
         cell.entryTitleLabel.text = feedEntry.title
@@ -76,37 +76,37 @@ class FeedTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let feedEntry = feed[indexPath.row]
+        let feedEntry = feed[(indexPath as NSIndexPath).row]
         
         print("SELECTED \(feedEntry.title)")
         
         //Open Safari Web View
-        if let entryURL = NSURL(string: feedEntry.url) {
+        if let entryURL = URL(string: feedEntry.url) {
         
-            let svc = SFSafariViewController(URL: entryURL)
-            self.presentViewController(svc, animated: true, completion: nil)
+            let svc = SFSafariViewController(url: entryURL)
+            self.present(svc, animated: true, completion: nil)
         }
         
     }
     
 
-    @IBAction func addNewFeed(sender: AnyObject) {
+    @IBAction func addNewFeed(_ sender: AnyObject) {
         
         
-        let alertController = UIAlertController(title: "PlainTextStyle", message: "PlainTextStyle AlertView.", preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addTextFieldWithConfigurationHandler { (textField : UITextField) -> Void in
+        let alertController = UIAlertController(title: "PlainTextStyle", message: "PlainTextStyle AlertView.", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addTextField { (textField : UITextField) -> Void in
             textField.placeholder = "Login"
         }
-        alertController.addTextFieldWithConfigurationHandler({
+        alertController.addTextField(configurationHandler: {
             (textField: UITextField) -> Void in
             textField.placeholder = "Feed URL"
         })
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (result : UIAlertAction) -> Void in
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
             print("Cancel")
         }
-        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
             
             self.currentFeedTitle = (alertController.textFields![0] as UITextField).text!
             self.currentFeedURL = (alertController.textFields![1] as UITextField).text!
@@ -121,7 +121,7 @@ class FeedTableViewController: UITableViewController {
         }
         alertController.addAction(cancelAction)
         alertController.addAction(okAction)
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
         
         
         
