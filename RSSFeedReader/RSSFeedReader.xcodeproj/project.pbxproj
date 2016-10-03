@@ -29,9 +29,6 @@
 		B9EE310D1D70C526000D5424 /* FeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EE310C1D70C526000D5424 /* FeedParser.swift */; };
 		B9EE310E1D70C526000D5424 /* FeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EE310C1D70C526000D5424 /* FeedParser.swift */; };
 		B9EE310F1D70C526000D5424 /* FeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EE310C1D70C526000D5424 /* FeedParser.swift */; };
-		B9EE31191D71F05A000D5424 /* OldFeedEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EE31181D71F05A000D5424 /* OldFeedEntry.swift */; };
-		B9EE311A1D71F05A000D5424 /* OldFeedEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EE31181D71F05A000D5424 /* OldFeedEntry.swift */; };
-		B9EE311B1D71F05A000D5424 /* OldFeedEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EE31181D71F05A000D5424 /* OldFeedEntry.swift */; };
 		B9EE311D1D7203D1000D5424 /* FeedEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EE311C1D7203D1000D5424 /* FeedEntryTableViewCell.swift */; };
 		B9EE311E1D7203D1000D5424 /* FeedEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EE311C1D7203D1000D5424 /* FeedEntryTableViewCell.swift */; };
 		B9EE311F1D7203D1000D5424 /* FeedEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EE311C1D7203D1000D5424 /* FeedEntryTableViewCell.swift */; };
@@ -73,7 +70,6 @@
 		B9EE31061D70C2DD000D5424 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
 		B9EE310A1D70C3A8000D5424 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B9EE310C1D70C526000D5424 /* FeedParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedParser.swift; sourceTree = "<group>"; };
-		B9EE31181D71F05A000D5424 /* OldFeedEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldFeedEntry.swift; sourceTree = "<group>"; };
 		B9EE311C1D7203D1000D5424 /* FeedEntryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedEntryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,7 +127,6 @@
 				B9EE31061D70C2DD000D5424 /* FeedTableViewController.swift */,
 				B9EE311C1D7203D1000D5424 /* FeedEntryTableViewCell.swift */,
 				B9EE310C1D70C526000D5424 /* FeedParser.swift */,
-				B9EE31181D71F05A000D5424 /* OldFeedEntry.swift */,
 				B94788C11DA25D1F00982B37 /* FeedEntry.swift */,
 				B94788C71DA2606100982B37 /* ItemEntry.swift */,
 				B9EE30D91D70C0FB000D5424 /* Main.storyboard */,
@@ -302,7 +297,6 @@
 				B94788C21DA25D1F00982B37 /* FeedEntry.swift in Sources */,
 				B9EE310D1D70C526000D5424 /* FeedParser.swift in Sources */,
 				B9EE30D61D70C0FB000D5424 /* AppDelegate.swift in Sources */,
-				B9EE31191D71F05A000D5424 /* OldFeedEntry.swift in Sources */,
 				B9EE311D1D7203D1000D5424 /* FeedEntryTableViewCell.swift in Sources */,
 				B9EE31071D70C2DD000D5424 /* FeedTableViewController.swift in Sources */,
 				B9EE30DE1D70C0FB000D5424 /* RSSFeedReader.xcdatamodeld in Sources */,
@@ -319,7 +313,6 @@
 				B94788C91DA2606100982B37 /* ItemEntry.swift in Sources */,
 				B94788C31DA25D1F00982B37 /* FeedEntry.swift in Sources */,
 				B9EE30EE1D70C0FB000D5424 /* RSSFeedReaderTests.swift in Sources */,
-				B9EE311A1D71F05A000D5424 /* OldFeedEntry.swift in Sources */,
 				B9EE31081D70C2DD000D5424 /* FeedTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,7 +327,6 @@
 				B94788CA1DA2606100982B37 /* ItemEntry.swift in Sources */,
 				B94788C41DA25D1F00982B37 /* FeedEntry.swift in Sources */,
 				B9EE30F91D70C0FB000D5424 /* RSSFeedReaderUITests.swift in Sources */,
-				B9EE311B1D71F05A000D5424 /* OldFeedEntry.swift in Sources */,
 				B9EE31091D70C2DD000D5424 /* FeedTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

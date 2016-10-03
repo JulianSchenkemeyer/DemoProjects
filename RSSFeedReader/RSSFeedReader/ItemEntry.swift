@@ -39,11 +39,36 @@ class ItemEntry: NSObject {
         var items: [Item] = []
         
         do {
+//            let req: NSFetchRequest<Item> = NSFetchRequest(entityName: "Item")
+//            req.predicate = NSPredicate(format: "itemTitle == %@", "Under the Radar: Code Reuse")
             items = try context.fetch(Item.fetchRequest())
+//            items = try context.fetch(req)
         } catch {
             print("Fetch failed")
         }
         
         return items
+    }
+    
+    func readItem (itemName: String) {
+        let context = getContext()
+        var items: [Item] = []
+        
+        do {
+            let req: NSFetchRequest<Item> = NSFetchRequest(entityName: "Item")
+            req.predicate = NSPredicate(format: "itemTitle == %@", itemName)
+            //            items = try context.fetch(Item.fetchRequest())
+            items = try context.fetch(req)
+            
+            for item in items {
+                item.itemIsRead = true
+                item.itemTitle = item.itemTitle! + "1"
+            }
+            
+            try context.save()
+            
+        } catch {
+            print("Fetch failed")
+        }
     }
 }

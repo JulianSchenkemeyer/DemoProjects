@@ -15,9 +15,14 @@ class FeedTableViewController: UITableViewController {
     var currentFeedTitle: String = "Marco.org"
     var currentFeedURL: String = "https://marco.org/rss2"
     
+    var isFirstTime = true
+    
     func getFeed() {
-        let feedParser = FeedParser()
-        feedParser.refreshFeed(currentFeedURL)
+        if (isFirstTime) {
+            let feedParser = FeedParser()
+            feedParser.refreshFeed(currentFeedURL)
+        }
+        isFirstTime = false
         
         let itemEntry = ItemEntry()
         self.feed = itemEntry.getItems()
@@ -83,7 +88,10 @@ class FeedTableViewController: UITableViewController {
         
         let entry = feed[(indexPath as NSIndexPath).row]
         
-        print("SELECTED \(entry.itemTitle)")
+        let itemEntry = ItemEntry()
+        itemEntry.readItem(itemName: entry.itemTitle!)
+        
+        print("SELECTED \(entry.itemTitle) + \(entry.itemIsRead)")
         
         //Open Safari Web View
         if let entryURL = URL(string: entry.itemLink!) {
@@ -91,6 +99,11 @@ class FeedTableViewController: UITableViewController {
             let svc = SFSafariViewController(url: entryURL)
             self.present(svc, animated: true, completion: nil)
         }
+        
+        
+        
+        self.getFeed()
+        self.tableView.reloadData()
         
     }
     
