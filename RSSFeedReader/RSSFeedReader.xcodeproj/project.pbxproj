@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B9410E011DA277CE003891C5 /* ItemEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94788C71DA2606100982B37 /* ItemEntry.swift */; };
+		B94788C21DA25D1F00982B37 /* FeedEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94788C11DA25D1F00982B37 /* FeedEntry.swift */; };
+		B94788C31DA25D1F00982B37 /* FeedEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94788C11DA25D1F00982B37 /* FeedEntry.swift */; };
+		B94788C41DA25D1F00982B37 /* FeedEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94788C11DA25D1F00982B37 /* FeedEntry.swift */; };
+		B94788C91DA2606100982B37 /* ItemEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94788C71DA2606100982B37 /* ItemEntry.swift */; };
+		B94788CA1DA2606100982B37 /* ItemEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94788C71DA2606100982B37 /* ItemEntry.swift */; };
+		B94788CB1DA26CA900982B37 /* RSSFeedReader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9EE30DC1D70C0FB000D5424 /* RSSFeedReader.xcdatamodeld */; };
+		B94788CC1DA26CA900982B37 /* RSSFeedReader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9EE30DC1D70C0FB000D5424 /* RSSFeedReader.xcdatamodeld */; };
 		B9EE30D61D70C0FB000D5424 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EE30D51D70C0FB000D5424 /* AppDelegate.swift */; };
 		B9EE30DB1D70C0FB000D5424 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9EE30D91D70C0FB000D5424 /* Main.storyboard */; };
 		B9EE30DE1D70C0FB000D5424 /* RSSFeedReader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9EE30DC1D70C0FB000D5424 /* RSSFeedReader.xcdatamodeld */; };
@@ -21,15 +29,9 @@
 		B9EE310D1D70C526000D5424 /* FeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EE310C1D70C526000D5424 /* FeedParser.swift */; };
 		B9EE310E1D70C526000D5424 /* FeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EE310C1D70C526000D5424 /* FeedParser.swift */; };
 		B9EE310F1D70C526000D5424 /* FeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EE310C1D70C526000D5424 /* FeedParser.swift */; };
-		B9EE31111D7192CD000D5424 /* Books.xml in Resources */ = {isa = PBXBuildFile; fileRef = B9EE31101D7192CD000D5424 /* Books.xml */; };
-		B9EE31121D7192CD000D5424 /* Books.xml in Resources */ = {isa = PBXBuildFile; fileRef = B9EE31101D7192CD000D5424 /* Books.xml */; };
-		B9EE31131D7192CD000D5424 /* Books.xml in Resources */ = {isa = PBXBuildFile; fileRef = B9EE31101D7192CD000D5424 /* Books.xml */; };
-		B9EE31151D71955A000D5424 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EE31141D71955A000D5424 /* Book.swift */; };
-		B9EE31161D71955A000D5424 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EE31141D71955A000D5424 /* Book.swift */; };
-		B9EE31171D71955A000D5424 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EE31141D71955A000D5424 /* Book.swift */; };
-		B9EE31191D71F05A000D5424 /* FeedEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EE31181D71F05A000D5424 /* FeedEntry.swift */; };
-		B9EE311A1D71F05A000D5424 /* FeedEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EE31181D71F05A000D5424 /* FeedEntry.swift */; };
-		B9EE311B1D71F05A000D5424 /* FeedEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EE31181D71F05A000D5424 /* FeedEntry.swift */; };
+		B9EE31191D71F05A000D5424 /* OldFeedEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EE31181D71F05A000D5424 /* OldFeedEntry.swift */; };
+		B9EE311A1D71F05A000D5424 /* OldFeedEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EE31181D71F05A000D5424 /* OldFeedEntry.swift */; };
+		B9EE311B1D71F05A000D5424 /* OldFeedEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EE31181D71F05A000D5424 /* OldFeedEntry.swift */; };
 		B9EE311D1D7203D1000D5424 /* FeedEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EE311C1D7203D1000D5424 /* FeedEntryTableViewCell.swift */; };
 		B9EE311E1D7203D1000D5424 /* FeedEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EE311C1D7203D1000D5424 /* FeedEntryTableViewCell.swift */; };
 		B9EE311F1D7203D1000D5424 /* FeedEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EE311C1D7203D1000D5424 /* FeedEntryTableViewCell.swift */; };
@@ -53,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B94788C11DA25D1F00982B37 /* FeedEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedEntry.swift; sourceTree = "<group>"; };
+		B94788C71DA2606100982B37 /* ItemEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemEntry.swift; sourceTree = "<group>"; };
 		B9EE30D21D70C0FA000D5424 /* RSSFeedReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSFeedReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9EE30D51D70C0FB000D5424 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9EE30DA1D70C0FB000D5424 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -69,9 +73,7 @@
 		B9EE31061D70C2DD000D5424 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
 		B9EE310A1D70C3A8000D5424 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B9EE310C1D70C526000D5424 /* FeedParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedParser.swift; sourceTree = "<group>"; };
-		B9EE31101D7192CD000D5424 /* Books.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Books.xml; sourceTree = "<group>"; };
-		B9EE31141D71955A000D5424 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
-		B9EE31181D71F05A000D5424 /* FeedEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedEntry.swift; sourceTree = "<group>"; };
+		B9EE31181D71F05A000D5424 /* OldFeedEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldFeedEntry.swift; sourceTree = "<group>"; };
 		B9EE311C1D7203D1000D5424 /* FeedEntryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedEntryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,9 +131,9 @@
 				B9EE31061D70C2DD000D5424 /* FeedTableViewController.swift */,
 				B9EE311C1D7203D1000D5424 /* FeedEntryTableViewCell.swift */,
 				B9EE310C1D70C526000D5424 /* FeedParser.swift */,
-				B9EE31101D7192CD000D5424 /* Books.xml */,
-				B9EE31141D71955A000D5424 /* Book.swift */,
-				B9EE31181D71F05A000D5424 /* FeedEntry.swift */,
+				B9EE31181D71F05A000D5424 /* OldFeedEntry.swift */,
+				B94788C11DA25D1F00982B37 /* FeedEntry.swift */,
+				B94788C71DA2606100982B37 /* ItemEntry.swift */,
 				B9EE30D91D70C0FB000D5424 /* Main.storyboard */,
 				B9EE30DF1D70C0FB000D5424 /* Assets.xcassets */,
 				B9EE30E11D70C0FB000D5424 /* LaunchScreen.storyboard */,
@@ -271,7 +273,6 @@
 			files = (
 				B9EE30E31D70C0FB000D5424 /* LaunchScreen.storyboard in Resources */,
 				B9EE30E01D70C0FB000D5424 /* Assets.xcassets in Resources */,
-				B9EE31111D7192CD000D5424 /* Books.xml in Resources */,
 				B9EE30DB1D70C0FB000D5424 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,7 +281,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9EE31121D7192CD000D5424 /* Books.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +288,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9EE31131D7192CD000D5424 /* Books.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,12 +298,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9410E011DA277CE003891C5 /* ItemEntry.swift in Sources */,
+				B94788C21DA25D1F00982B37 /* FeedEntry.swift in Sources */,
 				B9EE310D1D70C526000D5424 /* FeedParser.swift in Sources */,
 				B9EE30D61D70C0FB000D5424 /* AppDelegate.swift in Sources */,
-				B9EE31191D71F05A000D5424 /* FeedEntry.swift in Sources */,
+				B9EE31191D71F05A000D5424 /* OldFeedEntry.swift in Sources */,
 				B9EE311D1D7203D1000D5424 /* FeedEntryTableViewCell.swift in Sources */,
 				B9EE31071D70C2DD000D5424 /* FeedTableViewController.swift in Sources */,
-				B9EE31151D71955A000D5424 /* Book.swift in Sources */,
 				B9EE30DE1D70C0FB000D5424 /* RSSFeedReader.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,10 +314,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9EE311E1D7203D1000D5424 /* FeedEntryTableViewCell.swift in Sources */,
-				B9EE31161D71955A000D5424 /* Book.swift in Sources */,
 				B9EE310E1D70C526000D5424 /* FeedParser.swift in Sources */,
+				B94788CB1DA26CA900982B37 /* RSSFeedReader.xcdatamodeld in Sources */,
+				B94788C91DA2606100982B37 /* ItemEntry.swift in Sources */,
+				B94788C31DA25D1F00982B37 /* FeedEntry.swift in Sources */,
 				B9EE30EE1D70C0FB000D5424 /* RSSFeedReaderTests.swift in Sources */,
-				B9EE311A1D71F05A000D5424 /* FeedEntry.swift in Sources */,
+				B9EE311A1D71F05A000D5424 /* OldFeedEntry.swift in Sources */,
 				B9EE31081D70C2DD000D5424 /* FeedTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,10 +329,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9EE311F1D7203D1000D5424 /* FeedEntryTableViewCell.swift in Sources */,
-				B9EE31171D71955A000D5424 /* Book.swift in Sources */,
 				B9EE310F1D70C526000D5424 /* FeedParser.swift in Sources */,
+				B94788CC1DA26CA900982B37 /* RSSFeedReader.xcdatamodeld in Sources */,
+				B94788CA1DA2606100982B37 /* ItemEntry.swift in Sources */,
+				B94788C41DA25D1F00982B37 /* FeedEntry.swift in Sources */,
 				B9EE30F91D70C0FB000D5424 /* RSSFeedReaderUITests.swift in Sources */,
-				B9EE311B1D71F05A000D5424 /* FeedEntry.swift in Sources */,
+				B9EE311B1D71F05A000D5424 /* OldFeedEntry.swift in Sources */,
 				B9EE31091D70C2DD000D5424 /* FeedTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,7 +411,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -447,7 +451,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

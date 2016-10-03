@@ -7,6 +7,8 @@
 //
 
 import Foundation
+//import CoreData
+//import UIKit
 
 
 class FeedParser: NSObject, XMLParserDelegate {
@@ -16,15 +18,17 @@ class FeedParser: NSObject, XMLParserDelegate {
     var entryTitle: String = String()
     var entryURL: String = String()
     
-    
+
     
     var parser: XMLParser!
 //    var posts = NSMutableArray()
 //    var elements = NSMutableDictionary()
 //    var element = NSString()
 //    var elementTitle =
+
     
-    func refreshFeed(_ feedAddress: String) -> [FeedEntry] {
+    
+    func refreshFeed(_ feedAddress: String) {
 //        let urlString = NSURL(string: feedAddress)
         let path = URL(string: feedAddress)
 //        if let path = NSBundle.mainBundle().URLForResource("Books", withExtension: "xml"){
@@ -35,7 +39,7 @@ class FeedParser: NSObject, XMLParserDelegate {
 //        }
         
         print("Finished?")
-        return feedEntries
+                
     }
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
@@ -46,19 +50,24 @@ class FeedParser: NSObject, XMLParserDelegate {
         if elementName == "item" {
             entryTitle = String()
             entryURL = String()
+        
+            print("START ELEMENT: \(entryTitle) + \(entryURL)")
+
         }
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         
         if elementName == "item" {
-            let entry = FeedEntry()
-            entry.title = entryTitle
-            entry.url = entryURL
+            let itemEntry = ItemEntry()
+            itemEntry.saveItem(title: entryTitle, link: entryURL, description: "")
+//            let entry = FeedEntry()
+//            entry.title = entryTitle
+//            entry.url = entryURL
             
-            print("ELEMENT: \(entryTitle) + \(entryURL)")
+            print("END ELEMENT: \(entryTitle) + \(entryURL)")
             
-            feedEntries.append(entry)
+//            feedEntries.append(entry)
         }
     }
     

@@ -11,13 +11,16 @@ import SafariServices
 
 class FeedTableViewController: UITableViewController {
 
-    var feed: [FeedEntry] = []
+    var feed: [Item] = []
     var currentFeedTitle: String = "Marco.org"
     var currentFeedURL: String = "https://marco.org/rss2"
     
     func getFeed() {
         let feedParser = FeedParser()
-        self.feed = feedParser.refreshFeed(currentFeedURL)
+        feedParser.refreshFeed(currentFeedURL)
+        
+        let itemEntry = ItemEntry()
+        self.feed = itemEntry.getItems()
         
         print(self.feed.count)
     }
@@ -65,10 +68,10 @@ class FeedTableViewController: UITableViewController {
 
         // Configure the cell...
 //        print(indexPath.row)
-        let feedEntry = feed[(indexPath as NSIndexPath).row]
+        let entry = feed[(indexPath as NSIndexPath).row]
         
         
-        cell.entryTitleLabel.text = feedEntry.title
+        cell.entryTitleLabel.text = entry.itemTitle
         
         
         
@@ -78,13 +81,13 @@ class FeedTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let feedEntry = feed[(indexPath as NSIndexPath).row]
+        let entry = feed[(indexPath as NSIndexPath).row]
         
-        print("SELECTED \(feedEntry.title)")
+        print("SELECTED \(entry.itemTitle)")
         
         //Open Safari Web View
-        if let entryURL = URL(string: feedEntry.url) {
-        
+        if let entryURL = URL(string: entry.itemLink!) {
+
             let svc = SFSafariViewController(url: entryURL)
             self.present(svc, animated: true, completion: nil)
         }
