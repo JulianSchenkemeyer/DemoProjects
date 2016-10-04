@@ -13,11 +13,11 @@ import Foundation
 
 class FeedParser: NSObject, XMLParserDelegate {
     
-    var feedEntries: [FeedEntry] = []
     var eName: String = String()
     var entryTitle: String = String()
     var entryURL: String = String()
     var entryDate: Date = Date()
+    var oldEntries: [Item] = []
     
 
     
@@ -38,9 +38,8 @@ class FeedParser: NSObject, XMLParserDelegate {
                 parser.parse()
             }
 //        }
-        
+    
         print("Finished?")
-                
     }
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
@@ -62,7 +61,20 @@ class FeedParser: NSObject, XMLParserDelegate {
         
         if elementName == "item" {
             let itemEntry = ItemEntry()
-            itemEntry.saveItem(title: entryTitle, link: entryURL, description: "", pubDate: entryDate)
+            var isExisting = false
+            
+            //check if entry already exists
+            for oldEntry in oldEntries {
+                var test = oldEntry.itemTitle
+                if (oldEntry.itemTitle == entryTitle) {
+                    isExisting = true
+                }
+            }
+            
+            
+            if (!isExisting) {
+                itemEntry.saveItem(title: entryTitle, link: entryURL, description: "", pubDate: entryDate)
+            }
 //            let entry = FeedEntry()
 //            entry.title = entryTitle
 //            entry.url = entryURL

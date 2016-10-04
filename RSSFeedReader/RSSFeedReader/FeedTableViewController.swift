@@ -18,17 +18,25 @@ class FeedTableViewController: UITableViewController {
     var isFirstTime = true
     
     func getFeed() {
-        if (isFirstTime) {
-            let feedParser = FeedParser()
-            feedParser.refreshFeed(currentFeedURL)
-        }
-        isFirstTime = false
         
         let itemEntry = ItemEntry()
         self.feed = itemEntry.getItems()
         self.feed = self.feed.sorted { (item1, item2) -> Bool in
             return item1.itemPubDate?.compare(item2.itemPubDate as! Date) == ComparisonResult.orderedDescending
         }
+        
+        if (isFirstTime) {
+            let feedParser = FeedParser()
+            feedParser.oldEntries = self.feed
+            feedParser.refreshFeed(currentFeedURL)
+            self.feed = itemEntry.getItems()
+            self.feed = self.feed.sorted { (item1, item2) -> Bool in
+                return item1.itemPubDate?.compare(item2.itemPubDate as! Date) == ComparisonResult.orderedDescending
+            }
+        }
+        isFirstTime = false
+        
+        
         
         print(self.feed.count)
     }
@@ -44,11 +52,12 @@ class FeedTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         self.getFeed()
-        
+    
         let titleLabel: UILabel = UILabel()
         titleLabel.text = currentFeedTitle
         
         self.title = currentFeedTitle
+//        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
