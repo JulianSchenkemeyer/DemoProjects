@@ -9,11 +9,12 @@
         <attribute name="itemDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemIsRead" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="itemLink" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemPubDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="itemTitle" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="partOf" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Feed" inverseName="contains" inverseEntity="Feed" syncable="YES"/>
     </entity>
     <elements>
         <element name="Feed" positionX="-81" positionY="-61" width="128" height="88"/>
-        <element name="Item" positionX="126" positionY="-19" width="128" height="118"/>
+        <element name="Item" positionX="126" positionY="-19" width="128" height="133"/>
     </elements>
 </model>

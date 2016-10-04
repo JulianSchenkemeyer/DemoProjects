@@ -26,6 +26,9 @@ class FeedTableViewController: UITableViewController {
         
         let itemEntry = ItemEntry()
         self.feed = itemEntry.getItems()
+        self.feed = self.feed.sorted { (item1, item2) -> Bool in
+            return item1.itemPubDate?.compare(item2.itemPubDate as! Date) == ComparisonResult.orderedDescending
+        }
         
         print(self.feed.count)
     }

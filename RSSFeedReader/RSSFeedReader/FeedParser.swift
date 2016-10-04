@@ -17,6 +17,7 @@ class FeedParser: NSObject, XMLParserDelegate {
     var eName: String = String()
     var entryTitle: String = String()
     var entryURL: String = String()
+    var entryDate: Date = Date()
     
 
     
@@ -50,6 +51,7 @@ class FeedParser: NSObject, XMLParserDelegate {
         if elementName == "item" {
             entryTitle = String()
             entryURL = String()
+            entryDate = Date()
         
             print("START ELEMENT: \(entryTitle) + \(entryURL)")
 
@@ -60,7 +62,7 @@ class FeedParser: NSObject, XMLParserDelegate {
         
         if elementName == "item" {
             let itemEntry = ItemEntry()
-            itemEntry.saveItem(title: entryTitle, link: entryURL, description: "")
+            itemEntry.saveItem(title: entryTitle, link: entryURL, description: "", pubDate: entryDate)
 //            let entry = FeedEntry()
 //            entry.title = entryTitle
 //            entry.url = entryURL
@@ -79,6 +81,10 @@ class FeedParser: NSObject, XMLParserDelegate {
                 entryTitle += data
             } else if eName == "link" {
                 entryURL += data
+            } else if eName == "pubDate" {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "E, d MMM yyyy HH:mm:ss zzz"
+                entryDate = dateFormatter.date(from: data)!
             }
         }
     }

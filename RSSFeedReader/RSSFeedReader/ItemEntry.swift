@@ -15,13 +15,14 @@ class ItemEntry: NSObject {
         return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     }
     
-    func saveItem (title: String, link: String, description: String) {
+    func saveItem (title: String, link: String, description: String, pubDate: Date) {
         let context = getContext()
         
         let item = Item(context: context)
         item.itemTitle = title
         item.itemLink = link
         item.itemDescription = description
+        item.itemPubDate = pubDate as NSDate?
         item.itemIsRead = false
         
         
@@ -65,7 +66,7 @@ class ItemEntry: NSObject {
                 item.itemTitle = item.itemTitle! + "1"
             }
             
-            try context.save()
+//            try context.save()
             
         } catch {
             print("Fetch failed")
