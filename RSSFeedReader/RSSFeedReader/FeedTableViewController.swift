@@ -52,7 +52,7 @@ class FeedTableViewController: UITableViewController {
         let titleLabel: UILabel = UILabel()
         titleLabel.text = "RSS Feed"
         
-        self.title = currentFeedTitle
+        self.title = "RSS Feed"
 //        self.tableView.reloadData()
     }
 
