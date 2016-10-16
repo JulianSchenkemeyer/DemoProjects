@@ -15,26 +15,22 @@ class FeedTableViewController: UITableViewController {
     var currentFeedTitle: String = "Marco.org"
     var currentFeedURL: String = "https://marco.org/rss2"
     
-    var isFirstTime = true
+//    var isFirstTime = true
     
     func getFeed() {
         
         let itemEntry = ItemEntry()
+        
+
+        let feedParser = FeedParser()
+        feedParser.oldEntries = itemEntry.getItems()
+        feedParser.refreshFeed(feedName: currentFeedTitle, feedAddress: currentFeedURL)
+        
         self.feed = itemEntry.getItems()
         self.feed = self.feed.sorted { (item1, item2) -> Bool in
             return item1.itemPubDate?.compare(item2.itemPubDate as! Date) == ComparisonResult.orderedDescending
         }
-        
-        if (isFirstTime) {
-            let feedParser = FeedParser()
-            feedParser.oldEntries = self.feed
-            feedParser.refreshFeed(currentFeedURL)
-            self.feed = itemEntry.getItems()
-            self.feed = self.feed.sorted { (item1, item2) -> Bool in
-                return item1.itemPubDate?.compare(item2.itemPubDate as! Date) == ComparisonResult.orderedDescending
-            }
-        }
-        isFirstTime = false
+
         
         
         
@@ -54,7 +50,7 @@ class FeedTableViewController: UITableViewController {
         self.getFeed()
     
         let titleLabel: UILabel = UILabel()
-        titleLabel.text = currentFeedTitle
+        titleLabel.text = "RSS Feed"
         
         self.title = currentFeedTitle
 //        self.tableView.reloadData()
@@ -89,6 +85,7 @@ class FeedTableViewController: UITableViewController {
         
         
         cell.entryTitleLabel.text = entry.itemTitle
+        cell.feedTitleLabel.text = entry.partOf?.feedName
         
         
         
@@ -125,7 +122,7 @@ class FeedTableViewController: UITableViewController {
         
         let alertController = UIAlertController(title: "PlainTextStyle", message: "PlainTextStyle AlertView.", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addTextField { (textField : UITextField) -> Void in
-            textField.placeholder = "Login"
+            textField.placeholder = "Name"
         }
         alertController.addTextField(configurationHandler: {
             (textField: UITextField) -> Void in
@@ -136,13 +133,19 @@ class FeedTableViewController: UITableViewController {
         }
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
             
-            self.currentFeedTitle = (alertController.textFields![0] as UITextField).text!
-            self.currentFeedURL = (alertController.textFields![1] as UITextField).text!
+            let feedName = (alertController.textFields![0] as UITextField).text!
+            let feedURL = (alertController.textFields![1] as UITextField).text!
+            
+            self.currentFeedTitle = feedName
+            self.currentFeedURL = feedURL
             
             print(self.currentFeedTitle + " + " + self.currentFeedURL)
             
+            let newFeedEntry = FeedEntry()
+            newFeedEntry.saveFeed(name: feedName, url: feedURL)
+            
             self.getFeed()
-            self.title = self.currentFeedTitle
+
             self.tableView.reloadData()
             
             

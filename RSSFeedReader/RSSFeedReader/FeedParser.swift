@@ -19,6 +19,9 @@ class FeedParser: NSObject, XMLParserDelegate {
     var entryDate: Date = Date()
     var oldEntries: [Item] = []
     
+    var currentFeedName: String = ""
+    var currentFeedURL: String = ""
+    
 
     
     var parser: XMLParser!
@@ -29,8 +32,10 @@ class FeedParser: NSObject, XMLParserDelegate {
 
     
     
-    func refreshFeed(_ feedAddress: String) {
+    func refreshFeed(feedName: String, feedAddress: String) {
 //        let urlString = NSURL(string: feedAddress)
+        self.currentFeedURL = feedAddress
+        self.currentFeedName = feedName
         let path = URL(string: feedAddress)
 //        if let path = NSBundle.mainBundle().URLForResource("Books", withExtension: "xml"){
             if let parser = XMLParser(contentsOf: path!) {
@@ -65,15 +70,22 @@ class FeedParser: NSObject, XMLParserDelegate {
             
             //check if entry already exists
             for oldEntry in oldEntries {
-                var test = oldEntry.itemTitle
+//                var test = oldEntry.itemTitle
                 if (oldEntry.itemTitle == entryTitle) {
                     isExisting = true
                 }
             }
             
-            
+            //get Feed-Object
+            let feedEntry = FeedEntry()
+            var feedRes: [Feed] = feedEntry.getSpecificFeed(feedURL: self.currentFeedURL)
+            if feedRes.count == 0 {
+                feedEntry.saveFeed(name: currentFeedName, url: currentFeedURL)
+                feedRes = feedEntry.getSpecificFeed(feedURL: self.currentFeedURL)
+            }
+            let feed = feedRes[0]
             if (!isExisting) {
-                itemEntry.saveItem(title: entryTitle, link: entryURL, description: "", pubDate: entryDate)
+                itemEntry.saveItem(title: entryTitle, link: entryURL, description: "", pubDate: entryDate, feed: feed)
             }
 //            let entry = FeedEntry()
 //            entry.title = entryTitle

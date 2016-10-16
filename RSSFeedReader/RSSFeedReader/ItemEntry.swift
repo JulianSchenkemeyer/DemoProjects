@@ -15,7 +15,7 @@ class ItemEntry: NSObject {
         return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     }
     
-    func saveItem (title: String, link: String, description: String, pubDate: Date) {
+    func saveItem (title: String, link: String, description: String, pubDate: Date, feed: Feed) {
         let context = getContext()
         
         let item = Item(context: context)
@@ -24,6 +24,7 @@ class ItemEntry: NSObject {
         item.itemDescription = description
         item.itemPubDate = pubDate as NSDate?
         item.itemIsRead = false
+        item.partOf = feed
         
         
         do {

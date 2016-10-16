@@ -13,7 +13,6 @@ class FeedEntryTableViewCell: UITableViewCell {
     @IBOutlet weak var entryTitleLabel: UILabel!
     
     
-    func getContext() {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    }
+    @IBOutlet weak var feedTitleLabel: UILabel!
+
 }

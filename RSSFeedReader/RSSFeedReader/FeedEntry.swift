@@ -15,10 +15,11 @@ class FeedEntry: NSObject {
         return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     }
     
-    func saveFeed (url: String) {
+    func saveFeed (name: String, url: String) {
         let context = getContext()
         
         let feed = Feed(context: context)
+        feed.feedName = name
         feed.feedURL = url
         
         
@@ -44,19 +45,32 @@ class FeedEntry: NSObject {
         return feeds
     }
 
-//    func getSpecificFeed (feedName: String) -> Feed {
-//        let context = getContext()
-//        var feed = Feed()
-//        
+    func getSpecificFeed (feedURL: String) -> [Feed] {
+        let context = getContext()
+        var feed: [Feed] = []
+        
 //        let fetchReq: NSFetchRequest<Feed> = NSFetchRequest(entityName: "Feed")
 //        let predicate = NSPredicate(format: "feedName == %@", feedName)
 //        fetchReq.predicate = predicate
-//        
-//        do {
-//            feed = try context.fetch(fetchReq)
-//        }
-//        
-//        
-//        return
-//    }
+        
+        do {
+            let req: NSFetchRequest<Feed> = NSFetchRequest(entityName: "Feed")
+            req.predicate = NSPredicate(format: "feedURL == %@", feedURL)
+            //            items = try context.fetch(Item.fetchRequest())
+            feed = try context.fetch(req)
+            
+//            for item in items {
+//                item.itemIsRead = true
+//                item.itemTitle = item.itemTitle! + "1"
+//            }
+            
+            //            try context.save()
+            
+        } catch {
+            print("Fetch failed")
+        }
+        
+        
+        return feed
+    }
 }
