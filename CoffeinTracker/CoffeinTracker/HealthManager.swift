@@ -36,12 +36,12 @@ class HealthManager: NSObject {
 
     }
     
-    func saveEntry(coffeinValue: Int) {
+    func saveEntry(coffeinValue: Double) {
         
         if let coffeinType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryCaffeine) {
             
             //convert value
-            let coffeinValueMG = Double(coffeinValue) * 0.001
+            let coffeinValueMG = coffeinValue * 0.001
             let now = Date()
             
             // create new object which is later pushed
@@ -61,14 +61,20 @@ class HealthManager: NSObject {
         }
     }
     
-    func retrieveEntries() {
+    //TODO predicate parameter, sortDescriptor
+    func retrieveEntries(pred: NSPredicate, sortDes: [NSSortDescriptor]) -> [HKQuantitySample] {
+        
+        //Prepare ResultSet
+        var resultSet: [HKQuantitySample] = []
         
         if let coffeinType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryCaffeine) {
+            
+            
             
             //sortDescriptor
             
             //query
-            let query = HKSampleQuery(sampleType: coffeinType, predicate: nil, limit: 50, sortDescriptors: nil, resultsHandler: { (query, tmpResult, error) -> Void in
+            let query = HKSampleQuery(sampleType: coffeinType, predicate: pred, limit: 50, sortDescriptors: sortDes, resultsHandler: { (query, tmpResult, error) -> Void in
                 
                 if error != nil {
                     print("Error encoutered")
@@ -80,13 +86,48 @@ class HealthManager: NSObject {
                     for item in result {
                         if let sample = item as? HKQuantitySample {
                             print("\(i)Coffein: \(sample.quantity.doubleValue(for: HKUnit.gram()))")
+                            resultSet.append(sample)
                         }
                         i += 1
                     }
                 }
+                
             })
             healthStore.execute(query)
         }
+        return resultSet
+    }
+    
+    
+    func retrieveEntriesFromToday() -> [HKQuantitySample] {
+    
+        var results: [HKQuantitySample] = []
         
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
+        
+        //Getting current time intervall
+        let cal = Calendar.current
+        let comp = cal.dateComponents([.year, .month, .day], from: Date())
+        let todayStart = cal.date(from: comp)
+        let todayEnd = todayStart?.addingTimeInterval(60 * 60 * 24)
+        
+        let predicate = HKQuery.predicateForSamples(withStart: todayStart, end: todayEnd, options: [])
+        
+        
+        results = retrieveEntries(pred: predicate, sortDes: [sortDescriptor])
+        
+        
+        return results
+    }
+    
+    func sumTodayInMG() -> Int {
+        let results = retrieveEntriesFromToday()
+        var sum: Double = 0.0
+        
+        for entry in results {
+            sum += entry.quantity.doubleValue(for: HKUnit.gram())
+        }
+        
+        return Int(sum * 1000)
     }
 }

@@ -14,11 +14,13 @@ class AddBeverageViewController: UIViewController {
     @IBOutlet weak var beverageCoffeinTextField: UITextField!
     @IBOutlet weak var beverageSizeTextField: UITextField!
     
-    
+    let healthManager = HealthManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        healthManager.requestPermissions()
+        
         // Do any additional setup after loading the view.
     }
 
@@ -31,6 +33,15 @@ class AddBeverageViewController: UIViewController {
     @IBAction func AddBeverage(_ sender: Any) {
         
         print("Name: \(beverageNameTextField.text) - Coffein: \(beverageCoffeinTextField.text) - Size: \(beverageSizeTextField.text)")
+        
+        let coffeinValue: Double? = Double(beverageCoffeinTextField.text!)
+        let beverageSize: Double? = Double(beverageSizeTextField.text!)
+        
+        let coffeinEntry = (coffeinValue! / 100) * beverageSize!
+        
+        healthManager.saveEntry(coffeinValue: coffeinEntry)
+        
+        self.navigationController!.popViewController(animated: true)
         
     }
     /*
