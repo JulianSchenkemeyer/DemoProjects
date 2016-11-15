@@ -17,6 +17,10 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
+        print("I was opened")
+        // add observer
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.setCoffeinToday), name: .UIApplicationDidBecomeActive, object: nil)
+        
 //        currentCoffeinLabel.text = String(healthManager.sumTodayInMG())
         setCoffeinToday()
     }
@@ -30,6 +34,13 @@ class ViewController: UIViewController {
 //        healthManager.retrieveEntries()
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        print("I was closed")
+        
+        // remove observer
+        NotificationCenter.default.removeObserver(self, name: .UIApplicationDidBecomeActive, object: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
