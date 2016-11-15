@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddBeverageViewController: UIViewController {
+class AddBeverageViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var beverageNameTextField: UITextField!
     @IBOutlet weak var beverageCoffeinTextField: UITextField!
@@ -21,6 +21,10 @@ class AddBeverageViewController: UIViewController {
 
         healthManager.requestPermissions()
         
+        
+        self.beverageNameTextField.delegate = self
+        self.beverageNameTextField.delegate = self
+        self.beverageSizeTextField.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -44,6 +48,11 @@ class AddBeverageViewController: UIViewController {
         self.navigationController!.popViewController(animated: true)
         
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     /*
     // MARK: - Navigation
 
@@ -55,3 +64,4 @@ class AddBeverageViewController: UIViewController {
     */
 
 }
+

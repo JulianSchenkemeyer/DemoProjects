@@ -62,7 +62,7 @@ class HealthManager: NSObject {
     }
     
     //TODO predicate parameter, sortDescriptor
-    func retrieveEntries(pred: NSPredicate, sortDes: [NSSortDescriptor]) -> [HKQuantitySample] {
+    func retrieveEntries(pred: NSPredicate, sortDes: [NSSortDescriptor], completion: @escaping ([HKQuantitySample]) -> Void) {
         
         //Prepare ResultSet
         var resultSet: [HKQuantitySample] = []
@@ -91,43 +91,12 @@ class HealthManager: NSObject {
                         i += 1
                     }
                 }
+                completion(resultSet)
                 
             })
             healthStore.execute(query)
         }
-        return resultSet
+        
     }
     
-    
-    func retrieveEntriesFromToday() -> [HKQuantitySample] {
-    
-        var results: [HKQuantitySample] = []
-        
-        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
-        
-        //Getting current time intervall
-        let cal = Calendar.current
-        let comp = cal.dateComponents([.year, .month, .day], from: Date())
-        let todayStart = cal.date(from: comp)
-        let todayEnd = todayStart?.addingTimeInterval(60 * 60 * 24)
-        
-        let predicate = HKQuery.predicateForSamples(withStart: todayStart, end: todayEnd, options: [])
-        
-        
-        results = retrieveEntries(pred: predicate, sortDes: [sortDescriptor])
-        
-        
-        return results
-    }
-    
-    func sumTodayInMG() -> Int {
-        let results = retrieveEntriesFromToday()
-        var sum: Double = 0.0
-        
-        for entry in results {
-            sum += entry.quantity.doubleValue(for: HKUnit.gram())
-        }
-        
-        return Int(sum * 1000)
-    }
 }
