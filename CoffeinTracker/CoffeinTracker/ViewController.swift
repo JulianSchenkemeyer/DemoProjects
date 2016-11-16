@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var currentCoffeinLabel: UILabel!
     
     let healthManager = HealthManager()
+    var redVal = 0.0
+    var currentCoffeinLimit = 200
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -21,8 +23,14 @@ class ViewController: UIViewController {
         // add observer
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.setCoffeinToday), name: .UIApplicationDidBecomeActive, object: nil)
         
+//        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.coffeinStake), name: Notification.Name(rawValue: coffeinValueChanged), object: nil)
+        
 //        currentCoffeinLabel.text = String(healthManager.sumTodayInMG())
         setCoffeinToday()
+        
+//        currentCoffeinLabel.textColor = UIColor.red
+        
+        self.coffeinStake(currentValue: Int(self.currentCoffeinLabel.text!)!)
     }
     
     override func viewDidLoad() {
@@ -32,8 +40,11 @@ class ViewController: UIViewController {
 //        healthManager.requestPermissions()
 //        healthManager.saveEntry(coffeinValue: 75)
 //        healthManager.retrieveEntries()
-    }
 
+        
+
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         print("I was closed")
         
@@ -71,12 +82,39 @@ class ViewController: UIViewController {
             //Set Label
             DispatchQueue.main.async(execute: { () -> Void in
                 self.currentCoffeinLabel.text = String(Int(sum * 1000))
+                self.coffeinStake(currentValue: Int(sum * 1000))
             })
             
         })
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier! == "SettingsSegue") {
+            let destViewController = (segue.destination as! SettingsViewController)
+            destViewController.currentCoffeinLimit = self.currentCoffeinLimit
+            destViewController.parentVC = self
+        }
+    }
+    
+
+    
+    @IBAction func changeColor(_ sender: Any) {
+        
+        self.currentCoffeinLabel.textColor = UIColor(displayP3Red: CGFloat(redVal), green: 0.0, blue: 0.0, alpha: 1.0)
+        redVal += 0.1
+    }
+    
+    func coffeinStake(currentValue: Int) {
+        
+        //
+        var stake: Double = 100 / Double(self.currentCoffeinLimit)
+        stake = ( stake * Double(self.currentCoffeinLabel.text!)! ) / 100
+        print(stake)
+        
+        self.currentCoffeinLabel.textColor = UIColor(displayP3Red: CGFloat(stake), green: 0.0, blue: 0.0, alpha: 1.0)
+        
+    }
 
 }
 

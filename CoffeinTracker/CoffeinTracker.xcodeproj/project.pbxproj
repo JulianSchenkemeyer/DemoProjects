@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B94F58A01DCF477900C9F7CB /* AddBeverageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94F589F1DCF477900C9F7CB /* AddBeverageViewController.swift */; };
+		B977AD3D1DDC6E7F0097725A /* circularUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977AD3C1DDC6E7F0097725A /* circularUIButton.swift */; };
+		B977AD441DDC8BE60097725A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977AD431DDC8BE60097725A /* SettingsViewController.swift */; };
 		B9C11FA91DC6008E0040396B /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9C11FA81DC6008E0040396B /* HealthKit.framework */; };
 		B9C11FAC1DC633F40040396B /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C11FAB1DC633F40040396B /* HealthManager.swift */; };
 		B9C5CC511DBF770D00A6081D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C5CC501DBF770D00A6081D /* AppDelegate.swift */; };
@@ -20,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		B94F589F1DCF477900C9F7CB /* AddBeverageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBeverageViewController.swift; sourceTree = "<group>"; };
+		B977AD3C1DDC6E7F0097725A /* circularUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = circularUIButton.swift; sourceTree = "<group>"; };
+		B977AD431DDC8BE60097725A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ../SettingsViewController.swift; sourceTree = "<group>"; };
 		B9C11FA81DC6008E0040396B /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		B9C11FAA1DC6008E0040396B /* CoffeinTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoffeinTracker.entitlements; sourceTree = "<group>"; };
 		B9C11FAB1DC633F40040396B /* HealthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
@@ -75,9 +79,11 @@
 			children = (
 				B9C11FAA1DC6008E0040396B /* CoffeinTracker.entitlements */,
 				B9C5CC501DBF770D00A6081D /* AppDelegate.swift */,
+				B977AD3C1DDC6E7F0097725A /* circularUIButton.swift */,
+				B9C11FAB1DC633F40040396B /* HealthManager.swift */,
 				B9C5CC521DBF770D00A6081D /* ViewController.swift */,
 				B94F589F1DCF477900C9F7CB /* AddBeverageViewController.swift */,
-				B9C11FAB1DC633F40040396B /* HealthManager.swift */,
+				B977AD431DDC8BE60097725A /* SettingsViewController.swift */,
 				B9C5CC541DBF770D00A6081D /* Main.storyboard */,
 				B9C5CC5A1DBF770D00A6081D /* Assets.xcassets */,
 				B9C5CC5C1DBF770D00A6081D /* LaunchScreen.storyboard */,
@@ -167,8 +173,10 @@
 			files = (
 				B9C5CC531DBF770D00A6081D /* ViewController.swift in Sources */,
 				B9C5CC591DBF770D00A6081D /* CoffeinTracker.xcdatamodeld in Sources */,
+				B977AD441DDC8BE60097725A /* SettingsViewController.swift in Sources */,
 				B9C5CC511DBF770D00A6081D /* AppDelegate.swift in Sources */,
 				B94F58A01DCF477900C9F7CB /* AddBeverageViewController.swift in Sources */,
+				B977AD3D1DDC6E7F0097725A /* circularUIButton.swift in Sources */,
 				B9C11FAC1DC633F40040396B /* HealthManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

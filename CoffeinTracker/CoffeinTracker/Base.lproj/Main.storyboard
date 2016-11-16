@@ -33,26 +33,49 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKd-6c-CqU">
                                 <rect key="frame" x="36" y="299" width="303" height="69"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="65"/>
-                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iN9-75-2th" customClass="circularUIButton" customModule="CoffeinTracker" customModuleProvider="target">
+                                <rect key="frame" x="147" y="567" width="80" height="80"/>
+                                <color key="backgroundColor" red="0.93185937404632568" green="0.78994894027709961" blue="0.31728321313858032" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="titleShadowOffset" width="16" height="17"/>
+                                <state key="normal" backgroundImage="plus">
+                                    <color key="titleShadowColor" red="0.12842836664502869" green="0.44842560279187815" blue="0.12259837168694343" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="99U-6A-YkV" kind="show" identifier="AddBeverageSegue" id="Rcs-s4-8CF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ugl-gH-5ze" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="-20" id="12x-w3-8kv"/>
+                            <constraint firstItem="iN9-75-2th" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="131" id="6uX-Eo-SGI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iN9-75-2th" secondAttribute="trailing" constant="132" id="7ga-Zc-GDl"/>
+                            <constraint firstItem="iN9-75-2th" firstAttribute="top" secondItem="lKd-6c-CqU" secondAttribute="bottom" constant="199" id="7tw-CY-SbY"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lKd-6c-CqU" secondAttribute="bottom" constant="299" id="H2n-fl-24S"/>
                             <constraint firstItem="ugl-gH-5ze" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="159" id="J8q-hj-muz"/>
                             <constraint firstItem="ugl-gH-5ze" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="TgV-3T-r3R"/>
                             <constraint firstItem="lKd-6c-CqU" firstAttribute="top" secondItem="ugl-gH-5ze" secondAttribute="bottom" constant="55" id="UN9-aH-lTi"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="iN9-75-2th" secondAttribute="bottom" constant="20" id="dPb-ll-eZD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lKd-6c-CqU" secondAttribute="trailing" constant="20" id="iGz-Vd-oe7"/>
                             <constraint firstItem="lKd-6c-CqU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="zuG-Fc-YDE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="77a-bA-UWP">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="DFp-D0-VZX">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="DFp-D0-VZX">
                             <connections>
-                                <segue destination="99U-6A-YkV" kind="show" id="yb8-AV-Ppm"/>
+                                <segue destination="QGu-vN-LNi" kind="show" identifier="SettingsSegue" id="mhg-UP-YHP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -63,6 +86,84 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="138.98050974512745"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="uZU-TX-ZTZ">
+            <objects>
+                <viewController id="QGu-vN-LNi" customClass="SettingsViewController" customModule="CoffeinTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VuI-Tk-upx"/>
+                        <viewControllerLayoutGuide type="bottom" id="l8C-Vg-mEY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pjj-rL-GPL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Daily Coffein Limit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XsH-ic-qfe">
+                                <rect key="frame" x="16" y="113" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="200" minValue="0.0" maxValue="400" translatesAutoresizingMaskIntoConstraints="NO" id="kZr-sP-Uqx">
+                                <rect key="frame" x="14" y="180" width="347" height="31"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="QGu-vN-LNi" eventType="valueChanged" id="nO1-ad-tuj"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="max" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Eb-A6-SNU">
+                                <rect key="frame" x="317" y="151" width="32" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9e4-9Z-fiK">
+                                <rect key="frame" x="16" y="151" width="28" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tde-V4-Hsh">
+                                <rect key="frame" x="166" y="151" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kZr-sP-Uqx" firstAttribute="top" secondItem="0Eb-A6-SNU" secondAttribute="bottom" constant="8" id="7J1-f2-YEe"/>
+                            <constraint firstItem="kZr-sP-Uqx" firstAttribute="trailing" secondItem="pjj-rL-GPL" secondAttribute="trailingMargin" id="9Fy-Au-XE5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0Eb-A6-SNU" secondAttribute="trailing" constant="10" id="BxW-PM-4UF"/>
+                            <constraint firstItem="0Eb-A6-SNU" firstAttribute="top" secondItem="XsH-ic-qfe" secondAttribute="bottom" constant="17" id="CBE-x3-kVy"/>
+                            <constraint firstItem="9e4-9Z-fiK" firstAttribute="top" secondItem="XsH-ic-qfe" secondAttribute="bottom" constant="17" id="EL9-ov-wuz"/>
+                            <constraint firstItem="kZr-sP-Uqx" firstAttribute="top" secondItem="tde-V4-Hsh" secondAttribute="bottom" constant="8" id="FAF-kh-dUF"/>
+                            <constraint firstItem="tde-V4-Hsh" firstAttribute="top" secondItem="XsH-ic-qfe" secondAttribute="bottom" constant="17" id="FBL-DM-fts"/>
+                            <constraint firstItem="kZr-sP-Uqx" firstAttribute="top" secondItem="tde-V4-Hsh" secondAttribute="bottom" constant="8" id="QXn-eX-eC5"/>
+                            <constraint firstItem="0Eb-A6-SNU" firstAttribute="leading" secondItem="tde-V4-Hsh" secondAttribute="trailing" constant="109" id="U2w-Ec-JxS"/>
+                            <constraint firstItem="l8C-Vg-mEY" firstAttribute="top" secondItem="kZr-sP-Uqx" secondAttribute="bottom" constant="457" id="Um9-qQ-YfO"/>
+                            <constraint firstItem="XsH-ic-qfe" firstAttribute="trailing" secondItem="pjj-rL-GPL" secondAttribute="trailingMargin" id="eje-RU-Yca"/>
+                            <constraint firstItem="tde-V4-Hsh" firstAttribute="top" secondItem="XsH-ic-qfe" secondAttribute="bottom" constant="17" id="fGh-9z-hm8"/>
+                            <constraint firstItem="kZr-sP-Uqx" firstAttribute="top" secondItem="9e4-9Z-fiK" secondAttribute="bottom" constant="8" id="fOv-Un-cD8"/>
+                            <constraint firstItem="XsH-ic-qfe" firstAttribute="top" secondItem="VuI-Tk-upx" secondAttribute="bottom" constant="49" id="fZW-RA-hBG"/>
+                            <constraint firstItem="kZr-sP-Uqx" firstAttribute="leading" secondItem="pjj-rL-GPL" secondAttribute="leadingMargin" id="mit-6d-UX2"/>
+                            <constraint firstItem="0Eb-A6-SNU" firstAttribute="leading" secondItem="tde-V4-Hsh" secondAttribute="trailing" constant="109" id="oE9-bt-qBP"/>
+                            <constraint firstItem="9e4-9Z-fiK" firstAttribute="leading" secondItem="pjj-rL-GPL" secondAttribute="leadingMargin" id="q1G-FT-c5w"/>
+                            <constraint firstItem="tde-V4-Hsh" firstAttribute="leading" secondItem="9e4-9Z-fiK" secondAttribute="trailing" constant="122" id="rkG-1M-sDN"/>
+                            <constraint firstItem="tde-V4-Hsh" firstAttribute="leading" secondItem="9e4-9Z-fiK" secondAttribute="trailing" constant="122" id="tZa-ih-u1C"/>
+                            <constraint firstItem="XsH-ic-qfe" firstAttribute="leading" secondItem="pjj-rL-GPL" secondAttribute="leadingMargin" id="xpk-x6-m2c"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="coffeinLimitSlider" destination="kZr-sP-Uqx" id="vCZ-jZ-26P"/>
+                        <outlet property="currentValue" destination="tde-V4-Hsh" id="ljZ-Ja-Vu1"/>
+                        <outlet property="maxCoffeinLabel" destination="0Eb-A6-SNU" id="uAO-zF-4wR"/>
+                        <outlet property="minCoffeinLabel" destination="9e4-9Z-fiK" id="Kwf-AI-NFS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cx6-cp-0bu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1909.5999999999999" y="139.880059970015"/>
         </scene>
         <!--Add Beverage View Controller-->
         <scene sceneID="xeM-gB-EWE">
@@ -146,16 +247,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8cf-4W-Dym" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1860" y="137.18140929535232"/>
+            <point key="canvasLocation" x="1897" y="896"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="x1O-u9-b41">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Q1L-Uo-UbN" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ESe-Q5-khx">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ESe-Q5-khx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.93339546319796951" green="0.7607482510964344" blue="0.20621397871432512" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -167,4 +269,7 @@
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="plus" width="80" height="80"/>
+    </resources>
 </document>
