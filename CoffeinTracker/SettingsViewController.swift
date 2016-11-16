@@ -42,6 +42,7 @@ class SettingsViewController: UIViewController {
         
         self.currentCoffeinLimit = value
         self.parentVC?.currentCoffeinLimit = value
+        self.parentVC?.defaults.set(value, forKey: "dailyCoffeinLimit")
     }
 
     

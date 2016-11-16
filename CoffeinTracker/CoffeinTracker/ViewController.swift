@@ -15,9 +15,16 @@ class ViewController: UIViewController {
     
     let healthManager = HealthManager()
     var redVal = 0.0
-    var currentCoffeinLimit = 200
+    var currentCoffeinLimit = 300
+    let defaults = UserDefaults.standard
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        //load NSUserDefaults
+        let defaults = UserDefaults.standard
+        let coffeinLimit = defaults.integer(forKey: "dailyCoffeinLimit")
+        
+        self.currentCoffeinLimit = coffeinLimit
         
         print("I was opened")
         // add observer
