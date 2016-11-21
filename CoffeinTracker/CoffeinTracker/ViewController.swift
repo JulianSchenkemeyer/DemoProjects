@@ -12,6 +12,7 @@ import HealthKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var currentCoffeinLabel: UILabel!
+    @IBOutlet weak var circularProgress: circularProgressBarUIView!
     
     let healthManager = HealthManager()
     var redVal = 0.0
@@ -23,6 +24,8 @@ class ViewController: UIViewController {
         //load NSUserDefaults
         let defaults = UserDefaults.standard
         let coffeinLimit = defaults.integer(forKey: "dailyCoffeinLimit")
+        
+        circularProgress.guidelineBackgroundColor = UIColor.white
         
         self.currentCoffeinLimit = coffeinLimit
         
@@ -106,11 +109,6 @@ class ViewController: UIViewController {
     
 
     
-    @IBAction func changeColor(_ sender: Any) {
-        
-        self.currentCoffeinLabel.textColor = UIColor(displayP3Red: CGFloat(redVal), green: 0.0, blue: 0.0, alpha: 1.0)
-        redVal += 0.1
-    }
     
     func coffeinStake(currentValue: Int) {
         
@@ -118,8 +116,13 @@ class ViewController: UIViewController {
         var stake: Double = 100 / Double(self.currentCoffeinLimit)
         stake = ( stake * Double(self.currentCoffeinLabel.text!)! ) / 100
         print(stake)
+        let color = UIColor(displayP3Red: CGFloat(stake), green: 0.0, blue: 0.0, alpha: 1.0)
         
-        self.currentCoffeinLabel.textColor = UIColor(displayP3Red: CGFloat(stake), green: 0.0, blue: 0.0, alpha: 1.0)
+        
+        circularProgress.progress = stake
+        circularProgress.progressbarColor = color
+        
+        self.currentCoffeinLabel.textColor = color
         
     }
 
