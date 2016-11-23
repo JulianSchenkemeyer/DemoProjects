@@ -25,7 +25,7 @@
 		B93A28A81DE232760085911D /* circularProgressBarUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = circularProgressBarUIView.swift; sourceTree = "<group>"; };
 		B94F589F1DCF477900C9F7CB /* AddBeverageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBeverageViewController.swift; sourceTree = "<group>"; };
 		B977AD3C1DDC6E7F0097725A /* circularUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = circularUIButton.swift; sourceTree = "<group>"; };
-		B977AD431DDC8BE60097725A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ../SettingsViewController.swift; sourceTree = "<group>"; };
+		B977AD431DDC8BE60097725A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B9C11FA81DC6008E0040396B /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		B9C11FAA1DC6008E0040396B /* CoffeinTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoffeinTracker.entitlements; sourceTree = "<group>"; };
 		B9C11FAB1DC633F40040396B /* HealthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
