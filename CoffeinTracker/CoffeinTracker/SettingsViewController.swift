@@ -16,15 +16,24 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var currentValue: UILabel!
     
     var currentCoffeinLimit: Int = 300
-    var parentVC: ViewController?
+    let defaults = UserDefaults.standard
+
+    override func viewWillAppear(_ animated: Bool) {
+        //load NSUserDefaults
+        let temp = defaults.integer(forKey: "dailyCoffeinLimit") 
+        self.currentCoffeinLimit = temp
+        self.coffeinLimitSlider.value = Float(self.currentCoffeinLimit)
+        self.currentValue.text = "\(Int(self.coffeinLimitSlider.value))"
+    
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.maxCoffeinLabel.text = "400"
         self.minCoffeinLabel.text = "0"
-        self.coffeinLimitSlider.value = Float(self.currentCoffeinLimit)
-        self.currentValue.text = "\(Int(self.coffeinLimitSlider.value))"
+        
         
         // Do any additional setup after loading the view.
     }
@@ -41,8 +50,8 @@ class SettingsViewController: UIViewController {
         self.currentValue.text = "\(value)"
         
         self.currentCoffeinLimit = value
-        self.parentVC?.currentCoffeinLimit = value
-        self.parentVC?.defaults.set(value, forKey: "dailyCoffeinLimit")
+        
+        self.defaults.set(value, forKey: "dailyCoffeinLimit")
     }
 
     
@@ -66,6 +75,11 @@ class SettingsViewController: UIViewController {
 //        if (parent.ise)
         print("back")
     }
- 
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        print("I was closed")
+        
+        
+    }
 
 }

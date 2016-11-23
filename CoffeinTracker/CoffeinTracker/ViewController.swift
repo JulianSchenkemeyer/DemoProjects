@@ -22,7 +22,6 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         //load NSUserDefaults
-        let defaults = UserDefaults.standard
         let coffeinLimit = defaults.integer(forKey: "dailyCoffeinLimit")
         
         circularProgress.guidelineBackgroundColor = UIColor.white
@@ -100,11 +99,11 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier! == "SettingsSegue") {
-            let destViewController = (segue.destination as! SettingsViewController)
-            destViewController.currentCoffeinLimit = self.currentCoffeinLimit
-            destViewController.parentVC = self
-        }
+//        if (segue.identifier! == "SettingsSegue") {
+//            let destViewController = (segue.destination as! SettingsViewController)
+//            destViewController.currentCoffeinLimit = self.currentCoffeinLimit
+//            destViewController.parentVC = self
+//        }
     }
     
 
