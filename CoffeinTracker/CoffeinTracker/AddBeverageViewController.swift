@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AddBeverageViewController: UIViewController, UITextFieldDelegate {
 
@@ -33,17 +34,40 @@ class AddBeverageViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func getContext() -> NSManagedObjectContext {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        return context
+    }
+    
+    func saveContext() {
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+    }
+    
+    
+    
 
     @IBAction func AddBeverage(_ sender: Any) {
         
         print("Name: \(beverageNameTextField.text) - Coffein: \(beverageCoffeinTextField.text) - Size: \(beverageSizeTextField.text)")
         
-        let coffeinValue: Double? = Double(beverageCoffeinTextField.text!)
-        let beverageSize: Double? = Double(beverageSizeTextField.text!)
+        let caffeineValue: Double? = Double(beverageCoffeinTextField.text!)
+//        let beverageSize: Double? = Double(beverageSizeTextField.text!)
         
-        let coffeinEntry = (coffeinValue! / 100) * beverageSize!
+//        let coffeinEntry = (coffeinValue! / 100) * beverageSize!
         
-        healthManager.saveEntry(coffeinValue: coffeinEntry)
+//        healthManager.saveEntry(coffeinValue: coffeinEntry)
+        
+        // get Core Data Context
+        let context = self.getContext()
+        
+        // create Core Data Object
+        let beverage = Beverage(context: context)
+        beverage.name = beverageNameTextField.text
+        beverage.caffeine = caffeineValue!
+        
+        self.saveContext()
         
         self.navigationController!.popViewController(animated: true)
         

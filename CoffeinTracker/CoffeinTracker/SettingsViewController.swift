@@ -62,7 +62,7 @@ class SettingsViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if (segue.identifier! == "SettingsSegue") {
-            let destViewController = (segue.destination as! ViewController)
+            let destViewController = (segue.destination as! TodayViewController)
             destViewController.currentCoffeinLimit = self.currentCoffeinLimit
         }
     }

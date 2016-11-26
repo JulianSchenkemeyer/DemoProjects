@@ -9,7 +9,7 @@
 import UIKit
 import HealthKit
 
-class ViewController: UIViewController {
+class TodayViewController: UIViewController {
 
     @IBOutlet weak var currentCoffeinLabel: UILabel!
     @IBOutlet weak var circularProgress: circularProgressBarUIView!
@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         
         print("I was opened")
         // add observer
-        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.setCoffeinToday), name: .UIApplicationDidBecomeActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(TodayViewController.setCoffeinToday), name: .UIApplicationDidBecomeActive, object: nil)
         
 //        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.coffeinStake), name: Notification.Name(rawValue: coffeinValueChanged), object: nil)
         
