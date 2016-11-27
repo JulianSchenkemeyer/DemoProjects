@@ -12,6 +12,7 @@ import HealthKit
 class TodayViewController: UIViewController {
 
     @IBOutlet weak var currentCoffeinLabel: UILabel!
+    @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var circularProgress: circularProgressBarUIView!
     
     let healthManager = HealthManager()
@@ -19,7 +20,7 @@ class TodayViewController: UIViewController {
     var currentCoffeinLimit = 300
     let defaults = UserDefaults.standard
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
         //load NSUserDefaults
         let coffeinLimit = defaults.integer(forKey: "dailyCoffeinLimit")
@@ -92,6 +93,8 @@ class TodayViewController: UIViewController {
             DispatchQueue.main.async(execute: { () -> Void in
                 self.currentCoffeinLabel.text = String(Int(sum * 1000))
                 self.coffeinStake(currentValue: Int(sum * 1000))
+                
+                self.view.layoutIfNeeded()
             })
             
         })
@@ -115,6 +118,19 @@ class TodayViewController: UIViewController {
         var stake: Double = 100 / Double(self.currentCoffeinLimit)
         stake = ( stake * Double(self.currentCoffeinLabel.text!)! ) / 100
         print(stake)
+        // restrict stake to 1 if necessary
+        if stake > 1.0 {
+            stake = 1.0
+            
+            // configure warning label
+            self.warningLabel.isHidden = false
+            self.warningLabel.textColor = UIColor(displayP3Red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
+            let diff = Int(self.currentCoffeinLabel.text!)! - Int(self.currentCoffeinLimit)
+            self.warningLabel.text = "Warning!\n Your Caffeinelimit was exceeded by \(diff)mg"
+        } else {
+            self.warningLabel.isHidden = true
+        }
+        
         let color = UIColor(displayP3Red: CGFloat(stake), green: 0.0, blue: 0.0, alpha: 1.0)
         
         

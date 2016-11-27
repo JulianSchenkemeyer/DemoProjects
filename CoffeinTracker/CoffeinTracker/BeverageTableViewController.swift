@@ -12,6 +12,7 @@ import CoreData
 class BeverageTableViewController: UITableViewController {
     
     var beverages: [Beverage] = []
+    let healthManager = HealthManager()
 
     override func viewWillAppear(_ animated: Bool) {
         let context = self.getContext()
@@ -65,9 +66,22 @@ class BeverageTableViewController: UITableViewController {
 
         // Configure the cell...
         cell.beverageNameLabel.text = beverages[indexPath.row].name
-        cell.beverageCaffeineLabel.text = String(beverages[indexPath.row].caffeine)
+        cell.beverageCaffeineLabel.text = String(beverages[indexPath.row].caffeine) + " mg/100ml"
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        healthManager.requestPermissions()
+        
+        let selectedBeverage = beverages[indexPath.row]
+        
+        let calcCaffeineValue = (selectedBeverage.caffeine / 100) * 330
+        
+        healthManager.saveEntry(coffeinValue: calcCaffeineValue)
+        
+        self.navigationController!.popViewController(animated: true)
+        
     }
 
 
