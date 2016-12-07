@@ -20,6 +20,8 @@
 		B9C5CC5E1DBF770D00A6081D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9C5CC5C1DBF770D00A6081D /* LaunchScreen.storyboard */; };
 		B9CA5A881DE9FC8300E6E18E /* BeverageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CA5A871DE9FC8300E6E18E /* BeverageTableViewController.swift */; };
 		B9CA5A8A1DEA019C00E6E18E /* BeverageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CA5A891DEA019C00E6E18E /* BeverageTableViewCell.swift */; };
+		B9E1685B1DF8868500D76CDE /* ChooseBeverageSizeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E1685A1DF8868500D76CDE /* ChooseBeverageSizeTableViewCell.swift */; };
+		B9E1685D1DF88B7900D76CDE /* SizeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E1685C1DF88B7900D76CDE /* SizeCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		B9C5CC5F1DBF770D00A6081D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9CA5A871DE9FC8300E6E18E /* BeverageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageTableViewController.swift; sourceTree = "<group>"; };
 		B9CA5A891DEA019C00E6E18E /* BeverageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageTableViewCell.swift; sourceTree = "<group>"; };
+		B9E1685A1DF8868500D76CDE /* ChooseBeverageSizeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseBeverageSizeTableViewCell.swift; sourceTree = "<group>"; };
+		B9E1685C1DF88B7900D76CDE /* SizeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 				B9C11FAB1DC633F40040396B /* HealthManager.swift */,
 				B93A28A81DE232760085911D /* circularProgressBarUIView.swift */,
 				B9CA5A891DEA019C00E6E18E /* BeverageTableViewCell.swift */,
+				B9E1685A1DF8868500D76CDE /* ChooseBeverageSizeTableViewCell.swift */,
+				B9E1685C1DF88B7900D76CDE /* SizeCollectionViewCell.swift */,
 				B9CA5A861DE9FC4800E6E18E /* ViewController */,
 				B9C5CC541DBF770D00A6081D /* Main.storyboard */,
 				B9C5CC5A1DBF770D00A6081D /* Assets.xcassets */,
@@ -189,6 +195,8 @@
 				B9C5CC591DBF770D00A6081D /* CoffeinTracker.xcdatamodeld in Sources */,
 				B93A28A91DE232760085911D /* circularProgressBarUIView.swift in Sources */,
 				B9CA5A8A1DEA019C00E6E18E /* BeverageTableViewCell.swift in Sources */,
+				B9E1685D1DF88B7900D76CDE /* SizeCollectionViewCell.swift in Sources */,
+				B9E1685B1DF8868500D76CDE /* ChooseBeverageSizeTableViewCell.swift in Sources */,
 				B977AD441DDC8BE60097725A /* SettingsViewController.swift in Sources */,
 				B9CA5A881DE9FC8300E6E18E /* BeverageTableViewController.swift in Sources */,
 				B9C5CC511DBF770D00A6081D /* AppDelegate.swift in Sources */,

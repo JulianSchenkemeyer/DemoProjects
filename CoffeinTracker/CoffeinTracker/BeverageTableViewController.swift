@@ -77,7 +77,8 @@ class BeverageTableViewController: UITableViewController {
         if (self.currentExpanded >= 0) {
             
             if (self.currentExpanded == indexPath.row) {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "ChooseSizeCell", for: indexPath)
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ChooseSizeCell", for: indexPath) as! ChooseBeverageSizeTableViewCell
+                cell.items = 4
                 
                 return cell
             } else if (self.currentExpanded < indexPath.row) {
@@ -112,6 +113,15 @@ class BeverageTableViewController: UITableViewController {
 //        return cell
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        var cellHeight = 44.0
+        if (self.currentExpanded >= 0 && self.currentExpanded == indexPath.row) {
+            cellHeight = 80.0
+        }
+        return CGFloat(cellHeight)
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        healthManager.requestPermissions()
 //        
@@ -138,7 +148,7 @@ class BeverageTableViewController: UITableViewController {
                 
                 tableView.beginUpdates()
                 let indexToDelete = IndexPath.init(row: self.currentExpanded, section: 0)
-                self.tableView.deleteRows(at: [indexToDelete], with: .automatic)
+                self.tableView.deleteRows(at: [indexToDelete], with: .fade)
                 
                 self.currentSelected = -1
                 self.currentExpanded = -1
@@ -165,7 +175,7 @@ class BeverageTableViewController: UITableViewController {
             tableView.beginUpdates()
             var newIndexPath = indexPath
             newIndexPath.row += 1
-            tableView.deleteRows(at: [newIndexPath], with: .automatic)
+            tableView.deleteRows(at: [newIndexPath], with: .fade)
             tableView.endUpdates()
         }
         
