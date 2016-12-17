@@ -78,7 +78,7 @@ class BeverageTableViewController: UITableViewController {
             
             if (self.currentExpanded == indexPath.row) {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ChooseSizeCell", for: indexPath) as! ChooseBeverageSizeTableViewCell
-                cell.items = 4
+                cell.items = [125, 330, 500]
                 
                 return cell
             } else if (self.currentExpanded < indexPath.row) {
@@ -177,6 +177,8 @@ class BeverageTableViewController: UITableViewController {
             newIndexPath.row += 1
             tableView.deleteRows(at: [newIndexPath], with: .fade)
             tableView.endUpdates()
+            
+            tableView.deselectRow(at: indexPath, animated: true)
         }
         
     }

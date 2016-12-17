@@ -12,7 +12,7 @@ class ChooseBeverageSizeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var sizeCollectionView: UICollectionView!
     
-    var items = 0
+    var items: [Int] = []
 }
 extension ChooseBeverageSizeTableViewCell: UICollectionViewDelegate {
     
@@ -22,15 +22,30 @@ extension ChooseBeverageSizeTableViewCell: UICollectionViewDelegate {
 extension ChooseBeverageSizeTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items
+        return items.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sizeCell", for: indexPath) as! SizeCollectionViewCell
         
-        cell.backgroundColor = UIColor.darkGray
+        cell.sizeLabel.textAlignment = NSTextAlignment.center
+        if (indexPath.row < 3) {
+            cell.sizeLabel.text = "\(items[indexPath.row])ml"
+        } else {
+            cell.sizeLabel.text = "Other"
+        }
+        
+        
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if (indexPath.row < 3) {
+            print("\(items[indexPath.row])ml")
+        } else {
+            print("Other")
+        }
     }
 }
 
