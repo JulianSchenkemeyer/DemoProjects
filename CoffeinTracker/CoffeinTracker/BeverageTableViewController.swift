@@ -79,6 +79,8 @@ class BeverageTableViewController: UITableViewController {
             if (self.currentExpanded == indexPath.row) {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ChooseSizeCell", for: indexPath) as! ChooseBeverageSizeTableViewCell
                 cell.items = [125, 330, 500]
+                cell.beverageCaffeine = beverages[indexPath.row - 1].caffeine
+                cell.navigationController = self.navigationController
                 
                 return cell
             } else if (self.currentExpanded < indexPath.row) {

@@ -13,6 +13,8 @@ class ChooseBeverageSizeTableViewCell: UITableViewCell {
     @IBOutlet weak var sizeCollectionView: UICollectionView!
     
     var items: [Int] = []
+    var beverageCaffeine: Double = 0.0
+    var navigationController: UINavigationController?
 }
 extension ChooseBeverageSizeTableViewCell: UICollectionViewDelegate {
     
@@ -42,7 +44,31 @@ extension ChooseBeverageSizeTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if (indexPath.row < 3) {
-            print("\(items[indexPath.row])ml")
+            print("\(items[indexPath.row])ml + \(beverageCaffeine)")
+            
+            //calculate corresponding caffeine value
+            let calcCaffeineValue = (beverageCaffeine / 100) * Double(items[indexPath.row])
+            
+            //add value to healthKit
+            let healthManager = HealthManager()
+            healthManager.requestPermissions()
+            healthManager.saveEntry(coffeinValue: calcCaffeineValue)
+            
+            
+            navigationController!.popViewController(animated: true)
+            
+            
+            
+//                healthManager.requestPermissions()
+//        
+//                let selectedBeverage = beverages[indexPath.row]
+//        
+//                let calcCaffeineValue = (selectedBeverage.caffeine / 100) * 330
+//        
+//                healthManager.saveEntry(coffeinValue: calcCaffeineValue)
+//        
+//                self.navigationController!.popViewController(animated: true)
+            
         } else {
             print("Other")
         }

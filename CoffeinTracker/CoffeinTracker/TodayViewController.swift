@@ -19,6 +19,7 @@ class TodayViewController: UIViewController {
     var redVal = 0.0
     var currentCoffeinLimit = 300
     let defaults = UserDefaults.standard
+    var currentCaffeineMG = 0
     
     override func viewDidAppear(_ animated: Bool) {
         
@@ -91,7 +92,8 @@ class TodayViewController: UIViewController {
             
             //Set Label
             DispatchQueue.main.async(execute: { () -> Void in
-                self.currentCoffeinLabel.text = String(Int(sum * 1000))
+                self.currentCaffeineMG = Int(sum * 1000)
+                self.currentCoffeinLabel.text = "\(self.currentCaffeineMG)mg"
                 self.coffeinStake(currentValue: Int(sum * 1000))
                 
                 self.view.layoutIfNeeded()
@@ -116,7 +118,7 @@ class TodayViewController: UIViewController {
         
         //
         var stake: Double = 100 / Double(self.currentCoffeinLimit)
-        stake = ( stake * Double(self.currentCoffeinLabel.text!)! ) / 100
+        stake = ( stake * Double(self.currentCaffeineMG) ) / 100
         print(stake)
         // restrict stake to 1 if necessary
         if stake > 1.0 {
@@ -125,7 +127,7 @@ class TodayViewController: UIViewController {
             // configure warning label
             self.warningLabel.isHidden = false
             self.warningLabel.textColor = UIColor(displayP3Red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
-            let diff = Int(self.currentCoffeinLabel.text!)! - Int(self.currentCoffeinLimit)
+            let diff = self.currentCaffeineMG - Int(self.currentCoffeinLimit)
             self.warningLabel.text = "Warning!\n Your Caffeinelimit was exceeded by \(diff)mg"
         } else {
             self.warningLabel.isHidden = true
