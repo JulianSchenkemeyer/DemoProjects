@@ -11,37 +11,37 @@ import HealthKit
 
 class TodayViewController: UIViewController {
 
-    @IBOutlet weak var currentCoffeinLabel: UILabel!
+    @IBOutlet weak var currentCaffeineLabel: UILabel!
     @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var circularProgress: circularProgressBarUIView!
     
     let healthManager = HealthManager()
     var redVal = 0.0
-    var currentCoffeinLimit = 300
+    var currentCaffeineLimit = 300
     let defaults = UserDefaults.standard
     var currentCaffeineMG = 0
     
     override func viewDidAppear(_ animated: Bool) {
         
         //load NSUserDefaults
-        let coffeinLimit = defaults.integer(forKey: "dailyCoffeinLimit")
+        let caffeineLimit = defaults.integer(forKey: "dailyCaffeineLimit")
         
         circularProgress.guidelineBackgroundColor = UIColor.white
         
-        self.currentCoffeinLimit = coffeinLimit
+        self.currentCaffeineLimit = caffeineLimit
         
         print("I was opened")
         // add observer
-        NotificationCenter.default.addObserver(self, selector: #selector(TodayViewController.setCoffeinToday), name: .UIApplicationDidBecomeActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(TodayViewController.setCaffeineToday), name: .UIApplicationDidBecomeActive, object: nil)
         
 //        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.coffeinStake), name: Notification.Name(rawValue: coffeinValueChanged), object: nil)
         
 //        currentCoffeinLabel.text = String(healthManager.sumTodayInMG())
-        setCoffeinToday()
+        setCaffeineToday()
         
 //        currentCoffeinLabel.textColor = UIColor.red
         
-        self.coffeinStake(currentValue: Int(self.currentCoffeinLabel.text!)!)
+        self.caffeineStake(currentValue: self.currentCaffeineMG)
     }
     
     override func viewDidLoad() {
@@ -68,7 +68,7 @@ class TodayViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func setCoffeinToday() {
+    func setCaffeineToday() {
         
         healthManager.requestPermissions()
         
@@ -93,8 +93,17 @@ class TodayViewController: UIViewController {
             //Set Label
             DispatchQueue.main.async(execute: { () -> Void in
                 self.currentCaffeineMG = Int(sum * 1000)
-                self.currentCoffeinLabel.text = "\(self.currentCaffeineMG)mg"
-                self.coffeinStake(currentValue: Int(sum * 1000))
+                
+//                let currentCaffeineString = NSAttributedString(string: String(self.currentCaffeineMG), attributes: [NSFontAttributeName: UIFont(name: "Chalkduster", size: 30.0)!])
+
+                let currentCaffeineString: NSMutableAttributedString = NSMutableAttributedString(string: String(self.currentCaffeineMG), attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 65.0)])
+                let unitString = NSAttributedString(string: "mg", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 30.0)])
+                
+                currentCaffeineString.append(unitString)
+
+//                self.currentCoffeinLabel.text = "\(self.currentCaffeineMG)mg"
+                self.currentCaffeineLabel.attributedText = currentCaffeineString
+                self.caffeineStake(currentValue: Int(sum * 1000))
                 
                 self.view.layoutIfNeeded()
             })
@@ -114,10 +123,10 @@ class TodayViewController: UIViewController {
 
     
     
-    func coffeinStake(currentValue: Int) {
+    func caffeineStake(currentValue: Int) {
         
         //
-        var stake: Double = 100 / Double(self.currentCoffeinLimit)
+        var stake: Double = 100 / Double(self.currentCaffeineLimit)
         stake = ( stake * Double(self.currentCaffeineMG) ) / 100
         print(stake)
         // restrict stake to 1 if necessary
@@ -127,7 +136,7 @@ class TodayViewController: UIViewController {
             // configure warning label
             self.warningLabel.isHidden = false
             self.warningLabel.textColor = UIColor(displayP3Red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
-            let diff = self.currentCaffeineMG - Int(self.currentCoffeinLimit)
+            let diff = self.currentCaffeineMG - Int(self.currentCaffeineLimit)
             self.warningLabel.text = "Warning!\n Your Caffeinelimit was exceeded by \(diff)mg"
         } else {
             self.warningLabel.isHidden = true
@@ -139,7 +148,7 @@ class TodayViewController: UIViewController {
         circularProgress.progress = stake
         circularProgress.progressbarColor = color
         
-        self.currentCoffeinLabel.textColor = color
+        self.currentCaffeineLabel.textColor = color
         
     }
 

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:CoffeinTracker.xcodeproj">
+      location = "self:/Users/julian/Documents/XCode/DemoProjects/CoffeinTracker/CaffeineTracker.xcodeproj">
    </FileRef>
 </Workspace>

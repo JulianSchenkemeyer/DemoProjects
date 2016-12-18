@@ -13,7 +13,7 @@
         <!--Today View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="TodayViewController" customModule="CoffeinTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TodayViewController" customModule="CaffeineTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -22,11 +22,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="srq-Rq-cK6" customClass="circularProgressBarUIView" customModule="CoffeinTracker" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="srq-Rq-cK6" customClass="circularProgressBarUIView" customModule="CaffeineTracker" customModuleProvider="target">
                                 <rect key="frame" x="57" y="203" width="260" height="260"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coffein Today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugl-gH-5ze">
-                                        <rect key="frame" x="77" y="60" width="106" height="21"/>
+                                        <rect key="frame" x="64.5" y="60" width="131" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -37,8 +37,8 @@
                                     <constraint firstItem="ugl-gH-5ze" firstAttribute="centerX" secondItem="srq-Rq-cK6" secondAttribute="centerX" id="FjV-7S-uHn"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKd-6c-CqU">
-                                <rect key="frame" x="134" y="294" width="106" height="78"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0mg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKd-6c-CqU">
+                                <rect key="frame" x="121.5" y="294" width="131" height="78"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="65"/>
                                 <nil key="highlightedColor"/>
@@ -75,7 +75,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="circularProgress" destination="srq-Rq-cK6" id="xaG-4K-26b"/>
-                        <outlet property="currentCoffeinLabel" destination="lKd-6c-CqU" id="gkt-zE-b7t"/>
+                        <outlet property="currentCaffeineLabel" destination="lKd-6c-CqU" id="GdR-tk-epu"/>
                         <outlet property="warningLabel" destination="Rdb-P3-rdz" id="5xr-HU-e55"/>
                     </connections>
                 </viewController>
@@ -86,7 +86,7 @@
         <!--Settings View Controller-->
         <scene sceneID="uZU-TX-ZTZ">
             <objects>
-                <viewController id="QGu-vN-LNi" customClass="SettingsViewController" customModule="CoffeinTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="QGu-vN-LNi" customClass="SettingsViewController" customModule="CaffeineTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VuI-Tk-upx"/>
                         <viewControllerLayoutGuide type="bottom" id="l8C-Vg-mEY"/>
@@ -148,10 +148,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="oqP-Gd-nBR"/>
                     <connections>
-                        <outlet property="coffeinLimitSlider" destination="kZr-sP-Uqx" id="vCZ-jZ-26P"/>
+                        <outlet property="caffeineLimitSlider" destination="kZr-sP-Uqx" id="wJk-rn-Ef4"/>
                         <outlet property="currentValue" destination="tde-V4-Hsh" id="ljZ-Ja-Vu1"/>
-                        <outlet property="maxCoffeinLabel" destination="0Eb-A6-SNU" id="uAO-zF-4wR"/>
-                        <outlet property="minCoffeinLabel" destination="9e4-9Z-fiK" id="Kwf-AI-NFS"/>
+                        <outlet property="maxCaffeineLabel" destination="0Eb-A6-SNU" id="gRv-4v-xWB"/>
+                        <outlet property="minCaffeineLabel" destination="9e4-9Z-fiK" id="kG6-o7-XgP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cx6-cp-0bu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -161,17 +161,17 @@
         <!--Beverage Table View Controller-->
         <scene sceneID="RnS-KM-qN1">
             <objects>
-                <tableViewController id="DjC-vE-1QA" customClass="BeverageTableViewController" customModule="CoffeinTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="DjC-vE-1QA" customClass="BeverageTableViewController" customModule="CaffeineTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="YIO-Ly-CHk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BeverageCell" id="Wad-oO-Uwr" customClass="BeverageTableViewCell" customModule="CoffeinTracker" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BeverageCell" id="Wad-oO-Uwr" customClass="BeverageTableViewCell" customModule="CaffeineTracker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wad-oO-Uwr" id="ers-wd-B0e">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o20-4g-7iA">
@@ -203,11 +203,11 @@
                                     <outlet property="beverageNameLabel" destination="o20-4g-7iA" id="aUZ-78-2nV"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChooseSizeCell" rowHeight="85" id="2c5-Ag-Vqi" customClass="ChooseBeverageSizeTableViewCell" customModule="CoffeinTracker" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChooseSizeCell" rowHeight="85" id="2c5-Ag-Vqi" customClass="ChooseBeverageSizeTableViewCell" customModule="CaffeineTracker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2c5-Ag-Vqi" id="DLV-5T-vH7">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="84"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uTj-S4-7fw">
@@ -220,7 +220,7 @@
                                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             </collectionViewFlowLayout>
                                             <cells>
-                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="sizeCell" id="O0Z-fo-dEw" customClass="SizeCollectionViewCell" customModule="CoffeinTracker" customModuleProvider="target">
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="sizeCell" id="O0Z-fo-dEw" customClass="SizeCollectionViewCell" customModule="CaffeineTracker" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -287,7 +287,7 @@
         <!--Add Beverage View Controller-->
         <scene sceneID="xeM-gB-EWE">
             <objects>
-                <viewController id="99U-6A-YkV" customClass="AddBeverageViewController" customModule="CoffeinTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="99U-6A-YkV" customClass="AddBeverageViewController" customModule="CaffeineTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4oJ-RD-y8p"/>
                         <viewControllerLayoutGuide type="bottom" id="Wky-Rg-44f"/>
@@ -356,7 +356,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="beverageCoffeinTextField" destination="kO4-Md-O6a" id="XLW-8H-wOB"/>
+                        <outlet property="beverageCaffeineTextField" destination="kO4-Md-O6a" id="CfE-IL-pHA"/>
                         <outlet property="beverageNameTextField" destination="3sX-Vy-91z" id="gYM-oF-aeS"/>
                         <outlet property="beverageSizeTextField" destination="DdU-JZ-J40" id="2RX-tb-OP8"/>
                     </connections>

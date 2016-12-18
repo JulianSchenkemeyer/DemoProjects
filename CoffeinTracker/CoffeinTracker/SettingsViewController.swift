@@ -10,20 +10,20 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
-    @IBOutlet weak var coffeinLimitSlider: UISlider!
-    @IBOutlet weak var maxCoffeinLabel: UILabel!
-    @IBOutlet weak var minCoffeinLabel: UILabel!
+    @IBOutlet weak var caffeineLimitSlider: UISlider!
+    @IBOutlet weak var maxCaffeineLabel: UILabel!
+    @IBOutlet weak var minCaffeineLabel: UILabel!
     @IBOutlet weak var currentValue: UILabel!
     
-    var currentCoffeinLimit: Int = 300
+    var currentCaffeineLimit: Int = 300
     let defaults = UserDefaults.standard
 
     override func viewWillAppear(_ animated: Bool) {
         //load NSUserDefaults
-        let temp = defaults.integer(forKey: "dailyCoffeinLimit") 
-        self.currentCoffeinLimit = temp
-        self.coffeinLimitSlider.value = Float(self.currentCoffeinLimit)
-        self.currentValue.text = "\(Int(self.coffeinLimitSlider.value))"
+        let temp = defaults.integer(forKey: "dailyCaffeineLimit")
+        self.currentCaffeineLimit = temp
+        self.caffeineLimitSlider.value = Float(self.currentCaffeineLimit)
+        self.currentValue.text = "\(Int(self.caffeineLimitSlider.value))"
     
     }
     
@@ -31,8 +31,8 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.maxCoffeinLabel.text = "400"
-        self.minCoffeinLabel.text = "0"
+        self.maxCaffeineLabel.text = "400"
+        self.minCaffeineLabel.text = "0"
         
         
         // Do any additional setup after loading the view.
@@ -49,9 +49,9 @@ class SettingsViewController: UIViewController {
         let value = Int(sender.value)
         self.currentValue.text = "\(value)"
         
-        self.currentCoffeinLimit = value
+        self.currentCaffeineLimit = value
         
-        self.defaults.set(value, forKey: "dailyCoffeinLimit")
+        self.defaults.set(value, forKey: "dailyCaffeineLimit")
     }
 
     
@@ -63,7 +63,7 @@ class SettingsViewController: UIViewController {
         // Pass the selected object to the new view controller.
         if (segue.identifier! == "SettingsSegue") {
             let destViewController = (segue.destination as! TodayViewController)
-            destViewController.currentCoffeinLimit = self.currentCoffeinLimit
+            destViewController.currentCaffeineLimit = self.currentCaffeineLimit
         }
     }
     

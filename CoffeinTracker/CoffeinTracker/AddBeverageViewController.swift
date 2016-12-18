@@ -12,7 +12,7 @@ import CoreData
 class AddBeverageViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var beverageNameTextField: UITextField!
-    @IBOutlet weak var beverageCoffeinTextField: UITextField!
+    @IBOutlet weak var beverageCaffeineTextField: UITextField!
     @IBOutlet weak var beverageSizeTextField: UITextField!
     
     let healthManager = HealthManager()
@@ -50,9 +50,9 @@ class AddBeverageViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func AddBeverage(_ sender: Any) {
         
-        print("Name: \(beverageNameTextField.text) - Coffein: \(beverageCoffeinTextField.text) - Size: \(beverageSizeTextField.text)")
+        print("Name: \(beverageNameTextField.text) - Caffeine: \(beverageCaffeineTextField.text) - Size: \(beverageSizeTextField.text)")
         
-        let caffeineValue: Double? = Double(beverageCoffeinTextField.text!)
+        let caffeineValue: Double? = Double(beverageCaffeineTextField.text!)
 //        let beverageSize: Double? = Double(beverageSizeTextField.text!)
         
 //        let coffeinEntry = (coffeinValue! / 100) * beverageSize!

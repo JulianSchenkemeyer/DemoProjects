@@ -31,7 +31,7 @@
 		B9C11FA81DC6008E0040396B /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		B9C11FAA1DC6008E0040396B /* CoffeinTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoffeinTracker.entitlements; sourceTree = "<group>"; };
 		B9C11FAB1DC633F40040396B /* HealthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
-		B9C5CC4D1DBF770D00A6081D /* CoffeinTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeinTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9C5CC4D1DBF770D00A6081D /* CaffeineTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaffeineTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9C5CC501DBF770D00A6081D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9C5CC521DBF770D00A6081D /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		B9C5CC551DBF770D00A6081D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -77,7 +77,7 @@
 		B9C5CC4E1DBF770D00A6081D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B9C5CC4D1DBF770D00A6081D /* CoffeinTracker.app */,
+				B9C5CC4D1DBF770D00A6081D /* CaffeineTracker.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,9 +116,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B9C5CC4C1DBF770C00A6081D /* CoffeinTracker */ = {
+		B9C5CC4C1DBF770C00A6081D /* CaffeineTracker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B9C5CC621DBF770D00A6081D /* Build configuration list for PBXNativeTarget "CoffeinTracker" */;
+			buildConfigurationList = B9C5CC621DBF770D00A6081D /* Build configuration list for PBXNativeTarget "CaffeineTracker" */;
 			buildPhases = (
 				B9C5CC491DBF770C00A6081D /* Sources */,
 				B9C5CC4A1DBF770C00A6081D /* Frameworks */,
@@ -128,9 +128,9 @@
 			);
 			dependencies = (
 			);
-			name = CoffeinTracker;
+			name = CaffeineTracker;
 			productName = CoffeinTracker;
-			productReference = B9C5CC4D1DBF770D00A6081D /* CoffeinTracker.app */;
+			productReference = B9C5CC4D1DBF770D00A6081D /* CaffeineTracker.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -155,7 +155,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B9C5CC481DBF770C00A6081D /* Build configuration list for PBXProject "CoffeinTracker" */;
+			buildConfigurationList = B9C5CC481DBF770C00A6081D /* Build configuration list for PBXProject "CaffeineTracker" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -168,7 +168,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B9C5CC4C1DBF770C00A6081D /* CoffeinTracker */,
+				B9C5CC4C1DBF770C00A6081D /* CaffeineTracker */,
 			);
 		};
 /* End PBXProject section */
@@ -353,7 +353,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B9C5CC481DBF770C00A6081D /* Build configuration list for PBXProject "CoffeinTracker" */ = {
+		B9C5CC481DBF770C00A6081D /* Build configuration list for PBXProject "CaffeineTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B9C5CC601DBF770D00A6081D /* Debug */,
@@ -362,7 +362,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B9C5CC621DBF770D00A6081D /* Build configuration list for PBXNativeTarget "CoffeinTracker" */ = {
+		B9C5CC621DBF770D00A6081D /* Build configuration list for PBXNativeTarget "CaffeineTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B9C5CC631DBF770D00A6081D /* Debug */,
