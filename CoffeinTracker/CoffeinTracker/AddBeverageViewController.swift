@@ -52,25 +52,30 @@ class AddBeverageViewController: UIViewController, UITextFieldDelegate {
         
         print("Name: \(beverageNameTextField.text) - Caffeine: \(beverageCaffeineTextField.text) - Size: \(beverageSizeTextField.text)")
         
-        let caffeineValue: Double? = Double(beverageCaffeineTextField.text!)
-//        let beverageSize: Double? = Double(beverageSizeTextField.text!)
+        if (!(beverageCaffeineTextField.text?.isEmpty)! && !(beverageCaffeineTextField.text?.isEmpty)!) {
+            let caffeineValue: Double? = Double(beverageCaffeineTextField.text!)
+
+            // get Core Data Context
+            let context = self.getContext()
         
-//        let coffeinEntry = (coffeinValue! / 100) * beverageSize!
+            // create Core Data Object
+            let beverage = Beverage(context: context)
+            beverage.name = beverageNameTextField.text
+            beverage.caffeine = caffeineValue!
         
-//        healthManager.saveEntry(coffeinValue: coffeinEntry)
+            self.saveContext()
         
-        // get Core Data Context
-        let context = self.getContext()
+            self.navigationController!.popViewController(animated: true)
         
-        // create Core Data Object
-        let beverage = Beverage(context: context)
-        beverage.name = beverageNameTextField.text
-        beverage.caffeine = caffeineValue!
-        
-        self.saveContext()
-        
-        self.navigationController!.popViewController(animated: true)
-        
+        } else {
+            let alertController = UIAlertController(title: "Size and/or Caffeine Amount missing", message: "", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: {
+                alert -> Void in
+                
+                
+            }))
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
