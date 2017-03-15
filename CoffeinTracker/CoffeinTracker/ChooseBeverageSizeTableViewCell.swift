@@ -71,6 +71,48 @@ extension ChooseBeverageSizeTableViewCell: UICollectionViewDataSource {
             
         } else {
             print("Other")
+            
+            //TODO: Use something more appropriate than AlertController in order to enable custom sizes
+            
+            let alertController = UIAlertController(title: "Custom Beveragesize", message: "", preferredStyle: .alert)
+            
+            // UITextfield for custom size
+            alertController.addTextField(configurationHandler: {
+                (textField) -> Void in
+                
+                textField.placeholder = "Size in ml"
+                textField.textAlignment = .center
+                textField.keyboardType = .numberPad
+            })
+            
+            // OK-Action
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: {
+                alert -> Void in
+                
+                print("OK")
+                
+                let customSizeTextfield = alertController.textFields![0] as UITextField
+                
+                //calculate corresponding caffeine value
+                if (!(customSizeTextfield.text?.isEmpty)!) {
+                    let calcCaffeineValue = (self.beverageCaffeine / 100) * Double(customSizeTextfield.text!)!
+                
+                    //add value to healthKit
+                    let healthManager = HealthManager()
+                    healthManager.requestPermissions()
+                    healthManager.saveEntry(coffeinValue: calcCaffeineValue)
+                }
+                self.navigationController!.popViewController(animated: true)
+            }))
+            
+            // Cancel-Action
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { alert -> Void in
+                
+                print("Cancel")
+            }))
+            
+//            self.present(alertController, animated: true, completion: nil)
+            UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
         }
     }
 }
