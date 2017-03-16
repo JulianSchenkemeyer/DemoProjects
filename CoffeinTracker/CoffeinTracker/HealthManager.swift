@@ -17,7 +17,8 @@ class HealthManager: NSObject {
     func requestPermissions(){
         
         // Information we want to read
-        let typesToRead = Set([HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryCaffeine)!])
+        var typesToRead = Set([HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryCaffeine)!])
+        typesToRead.insert(HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!)
         
         // Information we want to write
         let typesToShare = Set([HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryCaffeine)!])
@@ -97,6 +98,37 @@ class HealthManager: NSObject {
             healthStore.execute(query)
         }
         
+    }
+    
+    func getWeight(completion: @escaping (Int) -> Void) {
+        if let weightType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass) {
+            
+            let weightQuery = HKSampleQuery(sampleType: weightType, predicate: nil, limit: 1, sortDescriptors: nil, resultsHandler: {
+                (query, results, error) -> Void in
+                
+                if error != nil {
+                    print("Error encoutered")
+                    return
+                }
+                
+                if let tmpResult = results {
+                    if tmpResult.count != 0{
+                        let weight = tmpResult[0] as? HKQuantitySample
+                        
+                        let weightDouble = (weight?.quantity.doubleValue(for: HKUnit.gram()))! / 1000
+                        let rlimit = Int(weightDouble) * 6
+                        print("\(weight?.quantity) + \(weightDouble) + \(rlimit)")
+                        
+                        completion(rlimit)
+                        
+                    } else {
+                        print("no entry")
+                    }
+                }
+            })
+            HKHealthStore().execute(weightQuery)
+        }
+
     }
     
 }

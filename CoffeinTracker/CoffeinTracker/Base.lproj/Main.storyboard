@@ -95,7 +95,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Daily Coffein Limit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XsH-ic-qfe">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Daily Caffeine Limit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XsH-ic-qfe">
                                 <rect key="frame" x="16" y="113" width="343" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="aCg-bp-SET"/>
@@ -128,6 +128,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Erw-fB-Dga">
+                                <rect key="frame" x="16" y="269" width="343" height="129"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">The specified daily limit can be used to keep your daily caffeine consume in check.  Please do consider that the max caffeine dosage varies from person to person. For most person it is between 300mg and 400mg. </string>
+                                        <attributes>
+                                            <font key="NSFont" metaFont="system" size="14"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nYw-hd-W04">
+                                <rect key="frame" x="125" y="406" width="124" height="30"/>
+                                <state key="normal" title="Recommend Limit"/>
+                                <connections>
+                                    <action selector="recommendLimit:" destination="QGu-vN-LNi" eventType="touchUpInside" id="e8S-gA-6T5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -135,15 +156,23 @@
                             <constraint firstItem="0Eb-A6-SNU" firstAttribute="baseline" secondItem="tde-V4-Hsh" secondAttribute="baseline" id="5nv-JJ-dL6"/>
                             <constraint firstItem="XsH-ic-qfe" firstAttribute="leading" secondItem="9e4-9Z-fiK" secondAttribute="leading" id="6PG-yr-eSr"/>
                             <constraint firstItem="kZr-sP-Uqx" firstAttribute="leading" secondItem="pjj-rL-GPL" secondAttribute="leadingMargin" constant="15" id="9Ek-A3-ndC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nYw-hd-W04" secondAttribute="trailing" constant="110" id="9ga-1R-FEq"/>
                             <constraint firstItem="tde-V4-Hsh" firstAttribute="top" secondItem="XsH-ic-qfe" secondAttribute="bottom" constant="31" id="FrS-LM-NBg"/>
                             <constraint firstItem="kZr-sP-Uqx" firstAttribute="top" secondItem="0Eb-A6-SNU" secondAttribute="bottom" constant="21" id="Fzd-az-ZyB"/>
+                            <constraint firstItem="l8C-Vg-mEY" firstAttribute="top" secondItem="Erw-fB-Dga" secondAttribute="bottom" constant="220" id="HTJ-HK-dTj"/>
                             <constraint firstItem="XsH-ic-qfe" firstAttribute="leading" secondItem="pjj-rL-GPL" secondAttribute="leadingMargin" id="Hgt-Me-7Hg"/>
+                            <constraint firstItem="nYw-hd-W04" firstAttribute="leading" secondItem="pjj-rL-GPL" secondAttribute="leadingMargin" constant="109" id="LpZ-TO-YQe"/>
+                            <constraint firstItem="Erw-fB-Dga" firstAttribute="trailing" secondItem="pjj-rL-GPL" secondAttribute="trailingMargin" id="M1Y-cr-mpM"/>
                             <constraint firstItem="0Eb-A6-SNU" firstAttribute="baseline" secondItem="9e4-9Z-fiK" secondAttribute="baseline" id="SwH-1v-IoU"/>
+                            <constraint firstItem="l8C-Vg-mEY" firstAttribute="top" secondItem="nYw-hd-W04" secondAttribute="bottom" constant="182" id="UbD-FV-crW"/>
                             <constraint firstItem="XsH-ic-qfe" firstAttribute="top" secondItem="VuI-Tk-upx" secondAttribute="bottom" constant="49" id="Uci-oD-s7r"/>
+                            <constraint firstItem="Erw-fB-Dga" firstAttribute="leading" secondItem="pjj-rL-GPL" secondAttribute="leadingMargin" id="YX0-HU-n9F"/>
                             <constraint firstItem="XsH-ic-qfe" firstAttribute="trailing" secondItem="0Eb-A6-SNU" secondAttribute="trailing" id="ZzB-oT-on0"/>
+                            <constraint firstItem="Erw-fB-Dga" firstAttribute="top" secondItem="kZr-sP-Uqx" secondAttribute="bottom" constant="30" id="bwK-sz-JhB"/>
                             <constraint firstItem="XsH-ic-qfe" firstAttribute="centerX" secondItem="tde-V4-Hsh" secondAttribute="centerX" id="cky-rI-ZKu"/>
                             <constraint firstItem="l8C-Vg-mEY" firstAttribute="top" secondItem="kZr-sP-Uqx" secondAttribute="bottom" constant="379" id="diI-FW-Elv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kZr-sP-Uqx" secondAttribute="trailing" constant="21" id="f8B-xi-0rW"/>
+                            <constraint firstItem="nYw-hd-W04" firstAttribute="top" secondItem="Erw-fB-Dga" secondAttribute="bottom" constant="8" id="sfN-em-hZa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="oqP-Gd-nBR"/>
@@ -211,7 +240,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uTj-S4-7fw">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="84.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="84"/>
                                             <color key="backgroundColor" red="0.85090547800064087" green="0.85102832317352295" blue="0.85087865591049194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="20" id="cKK-JD-bLu">
                                                 <size key="itemSize" width="70" height="70"/>

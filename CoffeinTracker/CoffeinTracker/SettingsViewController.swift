@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import HealthKit
 
 class SettingsViewController: UIViewController {
 
@@ -17,6 +18,7 @@ class SettingsViewController: UIViewController {
     
     var currentCaffeineLimit: Int = 300
     let defaults = UserDefaults.standard
+    let healthManager = HealthManager()
 
     override func viewWillAppear(_ animated: Bool) {
         //load NSUserDefaults
@@ -74,6 +76,25 @@ class SettingsViewController: UIViewController {
 //        parent.curren t CoffeinLimit = self.currentCoffeinLimit
 //        if (parent.ise)
         print("back")
+    }
+    
+    // recommend a daily limit based on a persons weight
+    @IBAction func recommendLimit(_ sender: Any) {
+        
+        
+        healthManager.getWeight(completion: {
+            (rlimit) -> Void in
+            self.currentCaffeineLimit = rlimit
+            self.defaults.set(rlimit, forKey: "dailyCaffeineLimit")
+            
+            DispatchQueue.main.async(execute: {
+                () -> Void in
+                self.currentValue.text = "\(rlimit)"
+                self.caffeineLimitSlider.value = Float(rlimit)
+            })
+
+        })
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
