@@ -83,10 +83,18 @@ class BeverageTableViewController: UITableViewController {
                 let sortSizes = NSSortDescriptor(key: "ml", ascending: true)
                 
                 let itemsset = beverages[indexPath.row - 1].beverageHasSizes
-                let items = itemsset?.sortedArray(using: [sortSizes, sortTimesUsed]) as! [Size]
+                let items = itemsset?.sortedArray(using: [sortTimesUsed]) as! [Size]
+                
+                //create a new array containing only the three most used sizes for the current beverage
+                var favItems: [Size] = []
+                for i in 0...2 {
+                    favItems.append(items[i])
+                }
+                favItems = favItems.sorted(by: {$0.ml < $1.ml})
                 
                 
                 cell.items = items
+                cell.favItems = favItems
                 cell.currentBeverage = beverages[indexPath.row - 1]
                 cell.beverageCaffeine = beverages[indexPath.row - 1].caffeine
                 cell.navigationController = self.navigationController

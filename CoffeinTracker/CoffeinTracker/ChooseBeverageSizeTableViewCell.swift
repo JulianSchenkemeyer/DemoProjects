@@ -14,6 +14,7 @@ class ChooseBeverageSizeTableViewCell: UITableViewCell {
     @IBOutlet weak var sizeCollectionView: UICollectionView!
     
     var items: [Size] = []
+    var favItems: [Size] = []
     var beverageCaffeine: Double = 0.0
     var navigationController: UINavigationController?
     var currentBeverage: Beverage?
@@ -36,7 +37,7 @@ extension ChooseBeverageSizeTableViewCell: UICollectionViewDataSource {
         
         cell.sizeLabel.textAlignment = NSTextAlignment.center
         if (indexPath.row < 3) {
-            cell.sizeLabel.text = "\(Int(items[indexPath.row].ml))ml"
+            cell.sizeLabel.text = "\(Int(favItems[indexPath.row].ml))ml"
 //            cell.sizeLabel.text =
         } else {
             cell.sizeLabel.text = "Other"
@@ -49,10 +50,10 @@ extension ChooseBeverageSizeTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if (indexPath.row < 3) {
-            print("\(items[indexPath.row])ml + \(beverageCaffeine)")
+            print("\(favItems[indexPath.row])ml + \(beverageCaffeine)")
             
             //calculate corresponding caffeine value
-            let calcCaffeineValue = (beverageCaffeine / 100) * Double(items[indexPath.row].ml)
+            let calcCaffeineValue = (beverageCaffeine / 100) * Double(favItems[indexPath.row].ml)
             
             //add value to healthKit
             let healthManager = HealthManager()
@@ -62,8 +63,8 @@ extension ChooseBeverageSizeTableViewCell: UICollectionViewDataSource {
             //increment timesConsumed-attribute of selected beverage
             currentBeverage?.timesConsumed += 1
             print("beverage consumed: \(currentBeverage?.timesConsumed)")
-            items[indexPath.row].timesUsed += 1
-            print("size used: \(items[indexPath.row].timesUsed)")
+            favItems[indexPath.row].timesUsed += 1
+            print("size used: \(favItems[indexPath.row].timesUsed)")
             
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
             
