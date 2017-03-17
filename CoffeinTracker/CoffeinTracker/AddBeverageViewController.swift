@@ -25,7 +25,7 @@ class AddBeverageViewController: UIViewController, UITextFieldDelegate {
         
         self.beverageNameTextField.delegate = self
         self.beverageNameTextField.delegate = self
-        self.beverageSizeTextField.delegate = self
+//        self.beverageSizeTextField.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -50,7 +50,7 @@ class AddBeverageViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func AddBeverage(_ sender: Any) {
         
-        print("Name: \(beverageNameTextField.text) - Caffeine: \(beverageCaffeineTextField.text) - Size: \(beverageSizeTextField.text)")
+        print("Name: \(beverageNameTextField.text) - Caffeine: \(beverageCaffeineTextField.text)")
         
         if (!(beverageCaffeineTextField.text?.isEmpty)! && !(beverageCaffeineTextField.text?.isEmpty)!) {
             let caffeineValue: Double? = Double(beverageCaffeineTextField.text!)
@@ -63,6 +63,21 @@ class AddBeverageViewController: UIViewController, UITextFieldDelegate {
             beverage.name = beverageNameTextField.text
             beverage.caffeine = caffeineValue!
             beverage.timesConsumed = 0
+            
+            let defaultSizeOne = Size(context: context)
+            defaultSizeOne.ml = 125
+            defaultSizeOne.timesUsed = 0
+            defaultSizeOne.sizeForBeverage = beverage
+            
+            let defaultSizeTwo = Size(context: context)
+            defaultSizeTwo.ml = 330
+            defaultSizeTwo.timesUsed = 0
+            defaultSizeTwo.sizeForBeverage = beverage
+            
+            let defaultSizeThree = Size(context: context)
+            defaultSizeThree.ml = 500
+            defaultSizeThree.timesUsed = 0
+            defaultSizeThree.sizeForBeverage = beverage
         
             self.saveContext()
         

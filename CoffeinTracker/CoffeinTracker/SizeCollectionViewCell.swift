@@ -12,5 +12,4 @@ class SizeCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var sizeLabel: UILabel!
     
-    
 }

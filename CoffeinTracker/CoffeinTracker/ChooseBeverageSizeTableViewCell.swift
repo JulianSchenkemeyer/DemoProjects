@@ -7,15 +7,17 @@
 //
 
 import UIKit
+import CoreData
 
 class ChooseBeverageSizeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var sizeCollectionView: UICollectionView!
     
-    var items: [Int] = []
+    var items: [Size] = []
     var beverageCaffeine: Double = 0.0
     var navigationController: UINavigationController?
     var currentBeverage: Beverage?
+    
 }
 extension ChooseBeverageSizeTableViewCell: UICollectionViewDelegate {
     
@@ -25,7 +27,8 @@ extension ChooseBeverageSizeTableViewCell: UICollectionViewDelegate {
 extension ChooseBeverageSizeTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count + 1
+        return 4
+//        return currentBeverage?.beverageHasSizes?.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -33,7 +36,8 @@ extension ChooseBeverageSizeTableViewCell: UICollectionViewDataSource {
         
         cell.sizeLabel.textAlignment = NSTextAlignment.center
         if (indexPath.row < 3) {
-            cell.sizeLabel.text = "\(items[indexPath.row])ml"
+            cell.sizeLabel.text = "\(Int(items[indexPath.row].ml))ml"
+//            cell.sizeLabel.text =
         } else {
             cell.sizeLabel.text = "Other"
         }
@@ -48,7 +52,7 @@ extension ChooseBeverageSizeTableViewCell: UICollectionViewDataSource {
             print("\(items[indexPath.row])ml + \(beverageCaffeine)")
             
             //calculate corresponding caffeine value
-            let calcCaffeineValue = (beverageCaffeine / 100) * Double(items[indexPath.row])
+            let calcCaffeineValue = (beverageCaffeine / 100) * Double(items[indexPath.row].ml)
             
             //add value to healthKit
             let healthManager = HealthManager()
@@ -58,6 +62,8 @@ extension ChooseBeverageSizeTableViewCell: UICollectionViewDataSource {
             //increment timesConsumed-attribute of selected beverage
             currentBeverage?.timesConsumed += 1
             print("beverage consumed: \(currentBeverage?.timesConsumed)")
+            items[indexPath.row].timesUsed += 1
+            print("size used: \(items[indexPath.row].timesUsed)")
             
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
             
@@ -95,6 +101,31 @@ extension ChooseBeverageSizeTableViewCell: UICollectionViewDataSource {
                     let healthManager = HealthManager()
                     healthManager.requestPermissions()
                     healthManager.saveEntry(coffeinValue: calcCaffeineValue)
+                    
+                    
+                    //check if size already exists
+                    var position = 0
+                    var i = 0
+                    for item in self.items {
+                        if item.ml == Double(customSizeTextfield.text!)! {
+                            position = i + 1
+                        }
+                        i += 1
+                    }
+                    
+                    if (position != 0) {
+                        self.items[position - 1].timesUsed += 1
+                    } else {
+                        //create new Size-Entry for this beverage
+                        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+                        let newSize = Size(context: context)
+                        
+                        newSize.ml = Double(customSizeTextfield.text!)!
+                        newSize.timesUsed = 1
+                        newSize.sizeForBeverage = self.currentBeverage
+                    }
+                    
+                    (UIApplication.shared.delegate as! AppDelegate).saveContext()
                 }
                 self.navigationController!.popViewController(animated: true)
             }))
