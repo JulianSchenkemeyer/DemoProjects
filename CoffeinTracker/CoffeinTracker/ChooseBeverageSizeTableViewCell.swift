@@ -15,6 +15,7 @@ class ChooseBeverageSizeTableViewCell: UITableViewCell {
     var items: [Int] = []
     var beverageCaffeine: Double = 0.0
     var navigationController: UINavigationController?
+    var currentBeverage: Beverage?
 }
 extension ChooseBeverageSizeTableViewCell: UICollectionViewDelegate {
     
@@ -54,20 +55,13 @@ extension ChooseBeverageSizeTableViewCell: UICollectionViewDataSource {
             healthManager.requestPermissions()
             healthManager.saveEntry(coffeinValue: calcCaffeineValue)
             
+            //increment timesConsumed-attribute of selected beverage
+            currentBeverage?.timesConsumed += 1
+            print("beverage consumed: \(currentBeverage?.timesConsumed)")
+            
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
             
             navigationController!.popViewController(animated: true)
-            
-            
-            
-//                healthManager.requestPermissions()
-//        
-//                let selectedBeverage = beverages[indexPath.row]
-//        
-//                let calcCaffeineValue = (selectedBeverage.caffeine / 100) * 330
-//        
-//                healthManager.saveEntry(coffeinValue: calcCaffeineValue)
-//        
-//                self.navigationController!.popViewController(animated: true)
             
         } else {
             print("Other")

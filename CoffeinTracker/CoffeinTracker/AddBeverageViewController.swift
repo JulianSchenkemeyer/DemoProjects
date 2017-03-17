@@ -62,6 +62,7 @@ class AddBeverageViewController: UIViewController, UITextFieldDelegate {
             let beverage = Beverage(context: context)
             beverage.name = beverageNameTextField.text
             beverage.caffeine = caffeineValue!
+            beverage.timesConsumed = 0
         
             self.saveContext()
         

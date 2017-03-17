@@ -79,6 +79,7 @@ class BeverageTableViewController: UITableViewController {
             if (self.currentExpanded == indexPath.row) {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ChooseSizeCell", for: indexPath) as! ChooseBeverageSizeTableViewCell
                 cell.items = [125, 330, 500]
+                cell.currentBeverage = beverages[indexPath.row - 1]
                 cell.beverageCaffeine = beverages[indexPath.row - 1].caffeine
                 cell.navigationController = self.navigationController
                 
@@ -125,21 +126,11 @@ class BeverageTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        healthManager.requestPermissions()
-//        
-//        let selectedBeverage = beverages[indexPath.row]
-//        
-//        let calcCaffeineValue = (selectedBeverage.caffeine / 100) * 330
-//        
-//        healthManager.saveEntry(coffeinValue: calcCaffeineValue)
-//        
-//        self.navigationController!.popViewController(animated: true)
         
         if (self.currentSelected != indexPath.row) {
             
             
             //expand
-//            tableView.beginUpdates()
             //collapse if another tablecell is already expanded
             var adjustedIndexPath = indexPath
             

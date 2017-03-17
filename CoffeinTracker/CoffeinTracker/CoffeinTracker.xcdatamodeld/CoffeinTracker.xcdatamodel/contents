@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11542" systemVersion="16B2555" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Beverage" representedClassName="Beverage" syncable="YES" codeGenerationType="class">
         <attribute name="caffeine" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timesConsumed" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="beverageHasSizes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Size" inverseName="sizeForBeverage" inverseEntity="Size" syncable="YES"/>
     </entity>
     <entity name="Size" representedClassName="Size" syncable="YES" codeGenerationType="class">
@@ -11,7 +12,7 @@
         <relationship name="sizeForBeverage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Beverage" inverseName="beverageHasSizes" inverseEntity="Beverage" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Beverage" positionX="-81" positionY="207" width="128" height="88"/>
+        <element name="Beverage" positionX="-81" positionY="207" width="128" height="103"/>
         <element name="Size" positionX="286" positionY="207" width="128" height="88"/>
     </elements>
 </model>
