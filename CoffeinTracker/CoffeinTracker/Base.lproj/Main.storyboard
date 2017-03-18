@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Today View Controller-->
+        <!--Today-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="TodayViewController" customModule="CaffeineTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -26,7 +26,7 @@
                                 <rect key="frame" x="57" y="203" width="260" height="260"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coffein Today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugl-gH-5ze">
-                                        <rect key="frame" x="64.5" y="60" width="131" height="21"/>
+                                        <rect key="frame" x="65" y="60" width="131" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -38,7 +38,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0mg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKd-6c-CqU">
-                                <rect key="frame" x="121.5" y="294" width="131" height="78"/>
+                                <rect key="frame" x="122" y="294" width="131" height="78"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="65"/>
                                 <nil key="highlightedColor"/>
@@ -66,7 +66,7 @@
                             <constraint firstItem="Rdb-P3-rdz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ypj-wU-KqM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="77a-bA-UWP">
+                    <navigationItem key="navigationItem" title="Today" id="77a-bA-UWP">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="DFp-D0-VZX">
                             <connections>
                                 <segue destination="DjC-vE-1QA" kind="show" id="vVc-TQ-U2U"/>
@@ -83,7 +83,7 @@
             </objects>
             <point key="canvasLocation" x="197.59999999999999" y="1791.4542728635683"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Settings-->
         <scene sceneID="uZU-TX-ZTZ">
             <objects>
                 <viewController id="QGu-vN-LNi" customClass="SettingsViewController" customModule="CaffeineTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -175,7 +175,7 @@
                             <constraint firstItem="nYw-hd-W04" firstAttribute="top" secondItem="Erw-fB-Dga" secondAttribute="bottom" constant="8" id="sfN-em-hZa"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="oqP-Gd-nBR"/>
+                    <navigationItem key="navigationItem" title="Settings" id="oqP-Gd-nBR"/>
                     <connections>
                         <outlet property="caffeineLimitSlider" destination="kZr-sP-Uqx" id="wJk-rn-Ef4"/>
                         <outlet property="currentValue" destination="tde-V4-Hsh" id="ljZ-Ja-Vu1"/>
@@ -392,11 +392,10 @@
                     </tabBar>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="selectedIndex">
-                            <integer key="value" value="1"/>
+                            <integer key="value" value="0"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="Qw3-vA-zLZ" kind="relationship" relationship="viewControllers" id="hnP-lM-m07"/>
                         <segue destination="QLU-Fs-8g0" kind="relationship" relationship="viewControllers" id="DJq-Hn-a0c"/>
                         <segue destination="uNk-J2-Y9W" kind="relationship" relationship="viewControllers" id="hKb-xq-jt7"/>
                     </connections>
@@ -442,51 +441,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="REn-58-WUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="938.68065967016503"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="jAO-wa-lDF">
-            <objects>
-                <viewController id="T6L-IY-iBk" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4tR-Yw-NHS"/>
-                        <viewControllerLayoutGuide type="bottom" id="4vX-lC-ibO"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Mt1-uy-o9D">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lzk-YB-gmc" customClass="circularProgressBarUIView" customModule="CaffeineTracker" customModuleProvider="target">
-                                <rect key="frame" x="57" y="72" width="260" height="260"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="s2g-oK-P9s"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gv8-aH-St9" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2174" y="1790"/>
-        </scene>
-        <!--Stats-->
-        <scene sceneID="BNJ-s7-ztq">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qw3-vA-zLZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Stats" id="HER-6y-iNo"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qfT-FH-XD4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="T6L-IY-iBk" kind="relationship" relationship="rootViewController" id="Cro-x6-k2i"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LhX-hy-siK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2174" y="939"/>
         </scene>
     </scenes>
 </document>

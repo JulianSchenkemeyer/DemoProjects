@@ -80,7 +80,6 @@ class BeverageTableViewController: UITableViewController {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ChooseSizeCell", for: indexPath) as! ChooseBeverageSizeTableViewCell
                 
                 let sortTimesUsed = NSSortDescriptor(key: "timesUsed", ascending: false)
-                let sortSizes = NSSortDescriptor(key: "ml", ascending: true)
                 
                 let itemsset = beverages[indexPath.row - 1].beverageHasSizes
                 let items = itemsset?.sortedArray(using: [sortTimesUsed]) as! [Size]

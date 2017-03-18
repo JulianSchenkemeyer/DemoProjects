@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B93687A61E7BF36C00A99260 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93687A51E7BF36C00A99260 /* StatsViewController.swift */; };
 		B93A28A91DE232760085911D /* circularProgressBarUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93A28A81DE232760085911D /* circularProgressBarUIView.swift */; };
 		B94F58A01DCF477900C9F7CB /* AddBeverageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94F589F1DCF477900C9F7CB /* AddBeverageViewController.swift */; };
 		B977AD441DDC8BE60097725A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977AD431DDC8BE60097725A /* SettingsViewController.swift */; };
@@ -26,7 +25,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B93687A51E7BF36C00A99260 /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		B93A28A81DE232760085911D /* circularProgressBarUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = circularProgressBarUIView.swift; sourceTree = "<group>"; };
 		B94F589F1DCF477900C9F7CB /* AddBeverageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBeverageViewController.swift; sourceTree = "<group>"; };
 		B977AD431DDC8BE60097725A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 				B94F589F1DCF477900C9F7CB /* AddBeverageViewController.swift */,
 				B977AD431DDC8BE60097725A /* SettingsViewController.swift */,
 				B9CA5A871DE9FC8300E6E18E /* BeverageTableViewController.swift */,
-				B93687A51E7BF36C00A99260 /* StatsViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -204,7 +201,6 @@
 				B9CA5A881DE9FC8300E6E18E /* BeverageTableViewController.swift in Sources */,
 				B9C5CC511DBF770D00A6081D /* AppDelegate.swift in Sources */,
 				B94F58A01DCF477900C9F7CB /* AddBeverageViewController.swift in Sources */,
-				B93687A61E7BF36C00A99260 /* StatsViewController.swift in Sources */,
 				B9C11FAC1DC633F40040396B /* HealthManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

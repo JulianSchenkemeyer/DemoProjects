@@ -66,6 +66,7 @@ extension ChooseBeverageSizeTableViewCell: UICollectionViewDataSource {
             favItems[indexPath.row].timesUsed += 1
             print("size used: \(favItems[indexPath.row].timesUsed)")
             
+            
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
             
             navigationController!.popViewController(animated: true)

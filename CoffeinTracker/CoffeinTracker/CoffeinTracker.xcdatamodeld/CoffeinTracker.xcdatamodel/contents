@@ -12,7 +12,7 @@
         <relationship name="sizeForBeverage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Beverage" inverseName="beverageHasSizes" inverseEntity="Beverage" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Beverage" positionX="-81" positionY="207" width="128" height="103"/>
-        <element name="Size" positionX="286" positionY="207" width="128" height="88"/>
+        <element name="Beverage" positionX="-108" positionY="-54" width="128" height="103"/>
+        <element name="Size" positionX="313" positionY="-34" width="128" height="88"/>
     </elements>
 </model>
